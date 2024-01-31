@@ -19,9 +19,6 @@ class LoginWithEmailAndPasswordBloc extends Bloc<
       result.fold(
           (l) => emit(const LoginWithEmailAndPasswordSuccessMessageState(
               successMessage: StringManager.loginSuccessfully)),
-
-
-          
           (r) => emit(LoginWithEmailAndPasswordErrorMessageState(
               errorMessage: DioHelper().getTypeOfFailure(r))));
     });

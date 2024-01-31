@@ -32,18 +32,18 @@ class _CustomTextFieldState extends State<CustomTextField> {
         decoration: InputDecoration(
             labelText: widget.labelText,
             labelStyle: TextStyle(
-                color: AppColors.greyColor,
+
             ),
             prefixIcon: widget.prefixIcon,
             border: OutlineInputBorder(
               borderSide: BorderSide(
-                  color: AppColors.greyColor.withOpacity(.4)
+
               ),
 
             ),
           focusedBorder:  OutlineInputBorder(
               borderSide: BorderSide(
-                  color: AppColors.greyColor.withOpacity(.4)
+
               )
           ),
         ),
