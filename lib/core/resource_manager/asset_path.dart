@@ -1,9 +1,6 @@
 const String pathImage = "assets/images";
 
-class AssetPath{
-
-  static const String google = "$pathImage/google.png";
-  static const String facebook = "$pathImage/facebook.png";
-  static const String apple = "$pathImage/apple.png";
-
+class AssetPath {
+  static const splashImage = "$pathImage/spalsh_image.png";
+  static const splashBackgroundAnimation = "$pathImage/splash_animation.png";
 }

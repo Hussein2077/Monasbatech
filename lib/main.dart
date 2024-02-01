@@ -17,7 +17,7 @@ Future<void> main() async {
         Locale('en'),
         Locale('ar'),
       ],
-      assetLoader:   CodegenLoader(),
+      assetLoader: CodegenLoader(),
       path: 'lib/core/translations/',
       saveLocale: true,
       child: const MyApp()));
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.login,
+        initialRoute: Routes.splash,
       ),
     );
   }
