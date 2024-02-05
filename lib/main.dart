@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:monasbatek/core/resource_manager/colors.dart';
 import 'package:monasbatek/core/resource_manager/routes.dart';
 import 'package:monasbatek/core/service/service_locator.dart';
 import 'package:monasbatek/core/translations/translations.dart';
@@ -8,6 +9,7 @@ import 'package:monasbatek/features/auth/presentation/controller/login_bloc/logi
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
 
   await ServerLocator().init();
 
@@ -42,9 +44,10 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
+          scaffoldBackgroundColor: AppColors.backGroundColor
         ),
         onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.splash,
+        initialRoute: Routes.login,
       ),
     );
   }
