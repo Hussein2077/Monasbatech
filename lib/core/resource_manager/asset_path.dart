@@ -5,9 +5,18 @@ class AssetPath {
   static const splashBackgroundAnimation = "$pathImage/splash_animation.png";
   static const message = "$pathImage/Message.png";
   static const apple = "$pathImage/apple.png";
-  static const lock = "$pathImage/lock.png";
+  static const lock = "$pathImage/Lock.svg";
   static const logo = "$pathImage/logo.png";
   static const google = "$pathImage/google.png";
-  static const home = "$pathImage/home.png";
-
+  static const home = "$pathImage/Home.svg";
+  static const chat = "$pathImage/chat.svg";
+  static const cart = "$pathImage/cart.svg";
+  static const emailIcon = "$pathImage/emailicon.svg";
+  static const profile = "$pathImage/profile.png";
+  static const profileNavigation = "$pathImage/Profile.svg";
+  static const notification = "$pathImage/Notification.svg";
+  static const searchPrefixIcon = "$pathImage/Search.svg";
+  static const searchSuffixIcon = "$pathImage/Filter.svg";
+  static const homeBanner = "$pathImage/homeBanner.png";
+  static const partyImage = "$pathImage/party.svg";
 }

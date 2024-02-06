@@ -24,7 +24,7 @@ class MainButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: height ?? AppSize.defaultSize! * 4,
+        height: height ?? AppSize.defaultSize! * 5.5,
         width: width ?? AppSize.screenWidth! * .9,
         decoration: BoxDecoration(
           color: color ?? AppColors.primaryColor,
@@ -34,8 +34,9 @@ class MainButton extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
+              fontWeight: FontWeight.bold,
               color: textColor ?? Colors.white,
-              fontSize: AppSize.defaultSize! * 1.5,
+              fontSize: AppSize.defaultSize! * 2,
             ),
           ),
         ),

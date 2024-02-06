@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monasbatek/features/auth/presentation/login_screen.dart';
-import 'package:monasbatek/features/home/home_screen.dart';
 
+import '../../features/home/presentation/pages/home_screen.dart';
 import '../../features/splash/presentation/pages/splash_screen.dart';
 
 class Routes {
@@ -22,22 +22,22 @@ class RouteGenerator {
       case Routes.splash:
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-            const SplashScreen(),
+                const SplashScreen(),
             transitionsBuilder: customAnimate);
       // case Routes.main:
       //   return PageRouteBuilder(
       //       pageBuilder: (context, animation, secondaryAnimation) =>
       //       const MainScreen(),
       //       transitionsBuilder: customAnimate);
-        case Routes.home:
+      case Routes.home:
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-            const HomeScreen(),
+                HomeScreen(),
             transitionsBuilder: customAnimate);
       case Routes.login:
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-            const LoginScreen(),
+                const LoginScreen(),
             transitionsBuilder: customAnimate);
 
       // case Routes.signUp:
@@ -73,6 +73,7 @@ class RouteGenerator {
     return MaterialPageRoute(builder: (context) => const Scaffold());
   }
 }
+
 Widget customAnimate(BuildContext context, Animation<double> animation,
     Animation<double> secondaryAnimation, Widget child) {
   // var begin = Offset(1.0, 0.0);

@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:monasbatek/core/resource_manager/asset_path.dart';
 import 'package:monasbatek/core/resource_manager/colors.dart';
 import 'package:monasbatek/core/resource_manager/routes.dart';
@@ -39,33 +40,42 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     AppSize().init(context);
     return Scaffold(
+      backgroundColor: AppColors.backGroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: AppSize.defaultSize!*8,),
-    Image.asset(AssetPath.logo),
-            SizedBox(height: AppSize.defaultSize!*2.6,),
-
+            SizedBox(
+              height: AppSize.defaultSize! * 8,
+            ),
+            Image.asset(AssetPath.logo),
+            SizedBox(
+              height: AppSize.defaultSize! * 2.6,
+            ),
             Text(
               StringManager.loginToYourAccount.tr(),
               maxLines: 2,
               style: TextStyle(
                   color: AppColors.black,
-
                   fontSize: AppSize.defaultSize! * 2,
                   fontWeight: FontWeight.w700),
             ),
-            SizedBox(height: AppSize.defaultSize!*2.6,),
-
+            SizedBox(
+              height: AppSize.defaultSize! * 2.6,
+            ),
             CustomTextField(
+              prefixIcon: SvgPicture.asset(
+                AssetPath.emailIcon,
+              ),
               hintText: StringManager.email.tr(),
-
               controller: emailController,
             ),
             SizedBox(
               height: AppSize.defaultSize! * 2,
             ),
             CustomTextField(
+              prefixIcon: SvgPicture.asset(
+                AssetPath.lock,
+              ),
               hintText: StringManager.password.tr(),
               obscureText: isVisible,
               controller: passwordController,
@@ -99,19 +109,38 @@ class _LoginScreenState extends State<LoginScreen> {
             MainButton(
               text: StringManager.login.tr(),
               onTap: () {
-
-                Navigator.pushNamed(context, Routes.main);
+                Navigator.pushNamed(context, Routes.home);
               },
             ),
             SizedBox(
               height: AppSize.defaultSize! * 4,
             ),
-            Text(
-              StringManager.or.tr(),
-              style: TextStyle(
-                  color: AppColors.blackColor,
-                  fontSize: AppSize.defaultSize! * 1.2,
-                  fontWeight: FontWeight.w700),
+            Padding(
+              padding: EdgeInsets.only(
+                  left: AppSize.defaultSize! * 2,
+                  right: AppSize.defaultSize! * 2),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    height: 1,
+                    color: AppColors.greyColor,
+                    width: AppSize.defaultSize! * 17,
+                  ),
+                  Text(
+                    StringManager.or.tr(),
+                    style: TextStyle(
+                        color: AppColors.blackColor,
+                        fontSize: AppSize.defaultSize! * 1.2,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  Container(
+                    height: 1,
+                    color: AppColors.greyColor,
+                    width: AppSize.defaultSize! * 17,
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               height: AppSize.defaultSize! * 4,
@@ -129,8 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: AppSize.screenHeight! * .1,
             ),
-            Container(
-              color: AppColors.containerColor,
+            SizedBox(
               height: AppSize.defaultSize! * 4.8,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monasbatek/core/resource_manager/colors.dart';
 import 'package:monasbatek/core/utils/app_size.dart';
 
-class CustomTextField extends StatefulWidget {
+class CustomSearchField extends StatefulWidget {
   final String? labelText;
   final String? hintText;
   final double? width;
@@ -17,7 +17,7 @@ class CustomTextField extends StatefulWidget {
   final void Function()? onTap;
   final TextStyle? hintStyle;
 
-  const CustomTextField({
+  const CustomSearchField({
     Key? key,
     this.labelText,
     this.controller,
@@ -35,10 +35,10 @@ class CustomTextField extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CustomTextFieldState createState() => _CustomTextFieldState();
+  _CustomSearchFieldState createState() => _CustomSearchFieldState();
 }
 
-class _CustomTextFieldState extends State<CustomTextField> {
+class _CustomSearchFieldState extends State<CustomSearchField> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -60,14 +60,35 @@ class _CustomTextFieldState extends State<CustomTextField> {
               TextStyle(
                   color: AppColors.secondaryBackGroundColor,
                   fontSize: AppSize.defaultSize! * 1.4),
-          suffixIcon: widget.suffixIcon,
+          suffixIcon: Row(
+            mainAxisSize: MainAxisSize
+                .min, // للتأكد من أن Row لا تشغل مساحة أكثر من اللازم
+            children: [
+              // زيادة المسافة بين الأيقونة والحد الداخلي لحقل النص
+              widget.suffixIcon! // يمكنك استبدال هذا بأيقونتك
+              ,
+              SizedBox(width: AppSize.screenWidth! * 0.015),
+            ],
+          ),
+          suffixIconConstraints: BoxConstraints(
+              maxHeight: 40, maxWidth: 40, minHeight: 30, minWidth: 30),
           prefixIconConstraints: const BoxConstraints(
               maxHeight: 40, maxWidth: 40, minHeight: 30, minWidth: 30),
           labelStyle: TextStyle(
-            color: AppColors.primaryColor,
-            fontSize: AppSize.screenHeight! * .02,
+            color: AppColors.greyColor,
+            fontSize: AppSize.screenHeight! * .018,
           ),
-          prefixIcon: widget.prefixIcon,
+          prefixIcon: Row(
+            mainAxisSize: MainAxisSize
+                .min, // للتأكد من أن Row لا تشغل مساحة أكثر من اللازم
+            children: [
+              SizedBox(width: AppSize.screenWidth! * 0.015),
+              // زيادة المسافة بين الأيقونة والحد الداخلي لحقل النص
+              widget.prefixIcon! // يمكنك استبدال هذا بأيقونتك
+              ,
+              SizedBox(width: AppSize.screenWidth! * 0.015),
+            ],
+          ),
           enabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.transparent),
               borderRadius: BorderRadius.circular(AppSize.defaultSize! * 2)),
