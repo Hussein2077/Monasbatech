@@ -11,7 +11,7 @@ import '../../../../core/widgets/custom_search_field.dart';
 import '../widgets/custom_gridview.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +22,9 @@ class HomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.only(
-              top: 16,
-              right: 24,
-              left: 24,
+              top: AppSize.defaultSize!*1.6,
+              right: AppSize.defaultSize!* 2.4,
+              left:  AppSize.defaultSize!*2.4,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       children: [
                         ClipRRect(
-                          borderRadius: BorderRadius.circular(40),
+                          borderRadius: BorderRadius.circular( AppSize.defaultSize!*4),
                           child: CircleAvatar(
                             backgroundColor: Colors.transparent,
                             maxRadius: AppSize.defaultSize! * 2.5,
@@ -65,7 +65,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(17),
+                          borderRadius: BorderRadius.circular( AppSize.defaultSize!*1.7),
                           border: Border.all(color: AppColors.pink)),
                       width: AppSize.screenWidth! * 0.115,
                       height: AppSize.screenHeight! * 0.055,
@@ -107,7 +107,7 @@ class HomeScreen extends StatelessWidget {
                   height: AppSize.defaultSize! * 1.2,
                 ),
                 GridView.builder(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: 6,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -117,7 +117,7 @@ class HomeScreen extends StatelessWidget {
                     mainAxisSpacing: AppSize.defaultSize! * 1.5,
                   ),
                   itemBuilder: (context, index) {
-                    return CustomGridView();
+                    return const CustomGridView();
                   },
                 )
               ],
@@ -126,7 +126,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       // -------- add bottom navigation Bar -------
-      bottomNavigationBar: CustomBottomNavigation(),
+      bottomNavigationBar: const CustomBottomNavigation(),
     );
   }
 }

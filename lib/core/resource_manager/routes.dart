@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:monasbatek/features/auth/presentation/forget%20password/change_password.dart';
+import 'package:monasbatek/features/auth/presentation/forget%20password/forget_password.dart';
+import 'package:monasbatek/features/auth/presentation/forget%20password/otp_code_screen.dart';
 import 'package:monasbatek/features/auth/presentation/login_screen.dart';
+import 'package:monasbatek/features/auth/presentation/signup/sign_up.dart';
 
 import '../../features/home/presentation/pages/home_screen.dart';
 import '../../features/splash/presentation/pages/splash_screen.dart';
@@ -32,7 +36,7 @@ class RouteGenerator {
       case Routes.home:
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-                HomeScreen(),
+                const HomeScreen(),
             transitionsBuilder: customAnimate);
       case Routes.login:
         return PageRouteBuilder(
@@ -40,26 +44,29 @@ class RouteGenerator {
                 const LoginScreen(),
             transitionsBuilder: customAnimate);
 
-      // case Routes.signUp:
-      //   return PageRouteBuilder(
-      //       pageBuilder: (context, animation, secondaryAnimation) =>
-      //       const SignUpScreen(),
-      //       transitionsBuilder: customAnimate);
-      // case Routes.forgetPassword:
-      //   return PageRouteBuilder(
-      //       pageBuilder: (context, animation, secondaryAnimation) =>
-      //       const ForgetPassword(),
-      //       transitionsBuilder: customAnimate);
-      // case Routes.sendOTPCode:
-      //   return PageRouteBuilder(
-      //       pageBuilder: (context, animation, secondaryAnimation) =>
-      //       const SendOTPCode(),
-      //       transitionsBuilder: customAnimate);
-      // case Routes.changePassword:
-      //   return PageRouteBuilder(
-      //       pageBuilder: (context, animation, secondaryAnimation) =>
-      //       const ChangePassword(),
-      //       transitionsBuilder: customAnimate);
+      case Routes.signUp:
+        return PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+            const SignUpScreen(),
+            transitionsBuilder: customAnimate);
+      case Routes.forgetPassword:
+        return PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+            const ForgetPassword(),
+            transitionsBuilder: customAnimate);
+      case Routes.sendOTPCode:
+        String email =
+        settings.arguments as String;
+        return PageRouteBuilder(
+          settings: settings,
+            pageBuilder: (context, animation, secondaryAnimation) =>
+              OTPCodeScreen(email: email,),
+            transitionsBuilder: customAnimate);
+      case Routes.changePassword:
+        return PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+            const ChangePassword(),
+            transitionsBuilder: customAnimate);
       // case Routes.profile:
       //   return PageRouteBuilder(
       //       pageBuilder: (context, animation, secondaryAnimation) =>

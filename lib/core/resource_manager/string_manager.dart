@@ -7,6 +7,7 @@ class StringManager {
   static const String welcomeBack = "Welcome Back!";
   static const String email = "Email Address";
   static const String password = "Password";
+  static const String passwordNot = "Please enter same password";
   static const String loginToContinue = "Login to continue Radio App";
   static const String rememberMe = "Remember me";
   static const String forgetPassword = "Forget password?";
@@ -30,7 +31,9 @@ class StringManager {
   static const String pleaseEnterYOurCode =
       "Please enter the code which sent to";
   static const String enterYourMobile = "Enter Your Mobile No.";
+  static const String enterYourEmail = "Enter Your Email";
   static const String signIn = "Sign in";
+  static const String pleaseFill = "Please fill your data";
   static const String sendCode = "Send Code";
   static const String confirm = "Confirm";
   static const String youAlready = "You Already have an account?   ";
@@ -38,7 +41,7 @@ class StringManager {
       "You can resend the verification code after ";
   static const String resendCode = "Resend the code";
   static const String verify = "Verify";
-  static const String firstName = "First Name";
+  static const String fullName = "Full Name";
   static const String secondName = "second Name";
   static const String phoneNum = "Phone";
   static const String dateOfBirth = "Date of birth";

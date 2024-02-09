@@ -60,14 +60,23 @@ class _CustomTextFieldState extends State<CustomTextField> {
               TextStyle(
                   color: AppColors.secondaryBackGroundColor,
                   fontSize: AppSize.defaultSize! * 1.4),
-          suffixIcon: widget.suffixIcon,
-          prefixIconConstraints: const BoxConstraints(
-              maxHeight: 40, maxWidth: 40, minHeight: 30, minWidth: 30),
+          suffixIcon: Padding(
+            padding:   EdgeInsets.all(AppSize.defaultSize!*.6),
+            child: widget.suffixIcon,
+          ),
+          prefixIconConstraints: BoxConstraints(
+              maxHeight: AppSize.defaultSize! * 4,
+              maxWidth: AppSize.defaultSize! * 4,
+              minHeight: AppSize.defaultSize! * 3,
+              minWidth: AppSize.defaultSize! * 3),
           labelStyle: TextStyle(
             color: AppColors.primaryColor,
             fontSize: AppSize.screenHeight! * .02,
           ),
-          prefixIcon: widget.prefixIcon,
+          prefixIcon: Padding(
+            padding:   EdgeInsets.all(AppSize.defaultSize!*.6),
+            child: widget.prefixIcon,
+          ),
           enabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.transparent),
               borderRadius: BorderRadius.circular(AppSize.defaultSize! * 2)),

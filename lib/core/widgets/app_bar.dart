@@ -50,27 +50,3 @@ AppBar homeAppBar(BuildContext context,
     // ],
   );
 }
-/*
- AppBar(
-          leading: IconButton(
-            icon: const Icon(
-              Icons.menu,
-              color: AppColors.primaryColor,
-            ),
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-          ),
-          title: Image.asset(AssetPath.logo,scale: 3,),
-          centerTitle: true,
-          actions: [
-            IconButton(
-              icon: const Icon(
-                Icons.notifications,
-                color: AppColors.primaryColor,
-              ),
-              onPressed: () {},
-            ),
-          ],
-        ),
- */

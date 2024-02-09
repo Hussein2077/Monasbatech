@@ -1,10 +1,15 @@
 class ErrorModelException implements Exception {
   final String errorMessage;
+  int? code;
 
-  ErrorModelException({required this.errorMessage});
+  ErrorModelException({
+    required this.errorMessage,
+    this.code,
+  });
 
-  factory ErrorModelException.fromJson(Map<String, dynamic> json) {
-    return ErrorModelException(errorMessage: json['message']);
+  factory ErrorModelException.fromJson(Map<String, dynamic> json, {int? code}) {
+    return ErrorModelException(
+        errorMessage: (code == 404||code==400) ? json['message'] : json['error']);
   }
 }
 

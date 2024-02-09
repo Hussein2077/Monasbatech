@@ -1,7 +1,9 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:monasbatek/core/error/exception.dart';
 import 'package:monasbatek/core/error/failure.dart';
 import 'package:monasbatek/core/error/failures_strings.dart';
@@ -11,12 +13,15 @@ import 'package:monasbatek/core/utils/methods.dart';
 class DioHelper {
   Future<Map<String, String>> header() async {
     String token = await Methods.instance.returnUserToken();
+
     if (kDebugMode) {
       log(token);
     }
-
     Map<String, String> headers = {
       "Authorization": "Bearer $token",
+      // "device": devicedata ?? 'noToken',
+      "Accept": 'application/json',
+      // "X-localization": key,
     };
     return headers;
   }
@@ -26,11 +31,15 @@ class DioHelper {
   ) {
     switch (failure.runtimeType) {
       case ServerFailure:
-        return Strings.serverFailureMessage;
+        return Strings.serverFailureMessage.tr();
+      case UnauthorizedFailure:
+        return Strings.unauthorizedFailureMassage.tr();
+
       case InternetFailure:
-        return Strings.checkYourInternet;
+        return Strings.checkYourInternet.tr();
+
       default:
-        return failure.errorMessage ?? StringManager.unexpectedError;
+        return failure.errorMessage ?? StringManager.unexpectedError.tr();
     }
   }
 
@@ -49,27 +58,25 @@ class DioHelper {
     }
   }
 
-  static dynamic handleDioError(
-      {DioException? dioError, String? endpointName}) {
+  static dynamic handleDioError({DioError? dioError, String? endpointName}) {
     if (kDebugMode) {
       log("dioError${dioError?.message}");
       log('endpointName$endpointName');
     }
 
     switch (dioError!.type) {
-      case DioExceptionType.badResponse:
+      case DioErrorType.response:
         throw handleStatuesCodeResponse(
             response: dioError.response, endpointName: endpointName);
-      case DioExceptionType.connectionError:
+      case DioErrorType.other:
         throw InternetException();
-      case DioExceptionType.cancel:
-      case DioExceptionType.badCertificate:
-      case DioExceptionType.unknown:
+      case DioErrorType.cancel:
         throw handleStatuesCodeResponse(
             response: dioError.response, endpointName: endpointName);
-      case DioExceptionType.receiveTimeout:
-      case DioExceptionType.sendTimeout:
-      case DioExceptionType.connectionTimeout:
+
+      case DioErrorType.receiveTimeout:
+      case DioErrorType.sendTimeout:
+      case DioErrorType.connectTimeout:
         throw ConnectionTimeoutException();
     }
   }
@@ -77,20 +84,32 @@ class DioHelper {
   static Exception handleStatuesCodeResponse(
       {Response? response, String? endpointName}) {
     if (kDebugMode) {
-      log("end point Name =$endpointName");
-      log("status code${response?.statusCode}");
-      log("error response${response?.data}");
+      log("endpointName =$endpointName");
+      log("statescode${response?.statusCode}");
+      log("errore respomse${response?.data}");
     }
     switch (response?.statusCode) {
       case 500:
-        throw ServerException();
-      case 401:
-        throw UnauthorizedException();
-      default:
         if (response?.data.runtimeType == String) {
           throw ErrorModelException(errorMessage: response!.data);
         } else {
           throw ErrorModelException.fromJson(response!.data);
+        }
+        throw ServerException();
+      case 401:
+        throw UnauthorizedException();
+      case 404:
+        if (response?.data.runtimeType == String) {
+          throw ErrorModelException(errorMessage: response!.data, code: 404);
+        } else {
+          throw ErrorModelException.fromJson(response!.data, code: 404);
+        }
+
+      default:
+        if (response?.data.runtimeType == String) {
+          throw ErrorModelException(errorMessage: response!.data,code: 400);
+        } else {
+          throw ErrorModelException.fromJson(response!.data,code: 400);
         }
     }
   }
