@@ -19,4 +19,9 @@ class AssetPath {
   static const searchSuffixIcon = "$pathImage/Filter.svg";
   static const homeBanner = "$pathImage/homeBanner.png";
   static const partyImage = "$pathImage/party.svg";
+  static const arrowLeft = "$pathImage/ArrowLeft.svg";
+  static const heart = "$pathImage/Heart.svg";
+  static const productImg = "$pathImage/Productpic.png";
+  static const companyImg = "$pathImage/companyImg.png";
+  static const uploadIcon = "$pathImage/Upload.svg";
 }

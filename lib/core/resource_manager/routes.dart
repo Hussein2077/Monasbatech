@@ -4,6 +4,9 @@ import 'package:monasbatek/features/auth/presentation/forget%20password/forget_p
 import 'package:monasbatek/features/auth/presentation/forget%20password/otp_code_screen.dart';
 import 'package:monasbatek/features/auth/presentation/login_screen.dart';
 import 'package:monasbatek/features/auth/presentation/signup/sign_up.dart';
+import 'package:monasbatek/features/home/presentation/pages/sub_category_items.dart';
+import 'package:monasbatek/features/home/presentation/pages/sub_category_screen.dart';
+import 'package:monasbatek/features/product_details/presentation/pages/product_details.dart';
 
 import '../../features/home/presentation/pages/home_screen.dart';
 import '../../features/splash/presentation/pages/splash_screen.dart';
@@ -11,6 +14,9 @@ import '../../features/splash/presentation/pages/splash_screen.dart';
 class Routes {
   static const String splash = "/";
   static const String home = "/home";
+  static const String subCategory = "/subCategory";
+  static const String subCategoryItems = "/subCategoryItems";
+  static const String productDetails = "/productDetails";
   static const String login = "/login";
   static const String main = "/main";
   static const String signUp = "/signUp";
@@ -47,26 +53,43 @@ class RouteGenerator {
       case Routes.signUp:
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-            const SignUpScreen(),
+                const SignUpScreen(),
             transitionsBuilder: customAnimate);
       case Routes.forgetPassword:
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-            const ForgetPassword(),
+                const ForgetPassword(),
             transitionsBuilder: customAnimate);
       case Routes.sendOTPCode:
-        String email =
-        settings.arguments as String;
+        String email = settings.arguments as String;
         return PageRouteBuilder(
-          settings: settings,
+            settings: settings,
             pageBuilder: (context, animation, secondaryAnimation) =>
-              OTPCodeScreen(email: email,),
+                OTPCodeScreen(
+                  email: email,
+                ),
             transitionsBuilder: customAnimate);
       case Routes.changePassword:
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-            const ChangePassword(),
+                const ChangePassword(),
             transitionsBuilder: customAnimate);
+      case Routes.subCategory:
+        return PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                const SubCategoryScreen(),
+            transitionsBuilder: customAnimate);
+      case Routes.subCategoryItems:
+        return PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                const SubCategoryItems(),
+            transitionsBuilder: customAnimate);
+      case Routes.productDetails:
+        return PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                const ProductDetails(),
+            transitionsBuilder: customAnimate);
+
       // case Routes.profile:
       //   return PageRouteBuilder(
       //       pageBuilder: (context, animation, secondaryAnimation) =>

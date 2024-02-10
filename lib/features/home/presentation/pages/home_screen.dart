@@ -5,6 +5,7 @@ import 'package:monasbatek/core/resource_manager/asset_path.dart';
 import 'package:monasbatek/core/resource_manager/colors.dart';
 import 'package:monasbatek/features/home/presentation/widgets/custom_bottom_navigation.dart';
 
+import '../../../../core/resource_manager/routes.dart';
 import '../../../../core/resource_manager/string_manager.dart';
 import '../../../../core/utils/app_size.dart';
 import '../../../../core/widgets/custom_search_field.dart';
@@ -17,14 +18,13 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     AppSize().init(context);
     return Scaffold(
-      appBar: AppBar(backgroundColor: AppColors.backGroundColor),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.only(
-              top: AppSize.defaultSize!*1.6,
-              right: AppSize.defaultSize!* 2.4,
-              left:  AppSize.defaultSize!*2.4,
+              top: AppSize.defaultSize! * 1.6,
+              right: AppSize.defaultSize! * 2.4,
+              left: AppSize.defaultSize! * 2.4,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,7 +35,8 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       children: [
                         ClipRRect(
-                          borderRadius: BorderRadius.circular( AppSize.defaultSize!*4),
+                          borderRadius:
+                              BorderRadius.circular(AppSize.defaultSize! * 4),
                           child: CircleAvatar(
                             backgroundColor: Colors.transparent,
                             maxRadius: AppSize.defaultSize! * 2.5,
@@ -65,7 +66,8 @@ class HomeScreen extends StatelessWidget {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular( AppSize.defaultSize!*1.7),
+                          borderRadius:
+                              BorderRadius.circular(AppSize.defaultSize! * 1.7),
                           border: Border.all(color: AppColors.pink)),
                       width: AppSize.screenWidth! * 0.115,
                       height: AppSize.screenHeight! * 0.055,
@@ -117,7 +119,11 @@ class HomeScreen extends StatelessWidget {
                     mainAxisSpacing: AppSize.defaultSize! * 1.5,
                   ),
                   itemBuilder: (context, index) {
-                    return const CustomGridView();
+                    return InkWell(
+                      onTap: () =>
+                          Navigator.of(context).pushNamed(Routes.subCategory),
+                      child: const CustomGridView(),
+                    );
                   },
                 )
               ],

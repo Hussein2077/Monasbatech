@@ -54,4 +54,9 @@ class StringManager {
   static const String profileName = "Ali Abdullah";
   static const String askOccasion = "What is your occasion?";
   static const String partyName = "Birth Day";
+  static const String happyBirth = "Happy Birth Day";
+  static const String cake = "Cake";
+  static const String productName = "Chocolate";
+  static const String productPrice = "120 RS";
+  static const String companyName = "Exite Company";
 }
