@@ -16,7 +16,6 @@ final double? width;
       imageUrl:ConstantApi.getImage(url),
       imageBuilder: (context, imageProvider) => Container(
         decoration: BoxDecoration(
-
           image: DecorationImage(
               image: imageProvider,
               fit: BoxFit.cover,

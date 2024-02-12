@@ -75,6 +75,11 @@ class StringManager {
   static const String thereIsNo = "There is no items";
   static const String addToCardSuccess =
       'Added to your shopping cart successfully!';
-  static const String buy = 'Buy Nows';
+  static const String buyNow = 'Buy Now';
+  static const String buy= 'Buy';
   static const String later = 'Later';
-}
+  static const String suggestion = 'Suggestion products';
+  static const String total = 'total';
+  static const String delivery = 'delivery';
+  static const String totalPrice = 'total price';
+ }

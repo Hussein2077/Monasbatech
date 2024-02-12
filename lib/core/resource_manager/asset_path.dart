@@ -29,4 +29,6 @@ class AssetPath {
   static const profileCompanyImg = "$pathImage/profileImg.png";
   static const productPreview = "$pathImage/Preview.png";
   static const location = "$pathImage/Location.svg";
+  static const cho = "$pathImage/cho.png";
+  static const cake = "$pathImage/cake.png";
 }

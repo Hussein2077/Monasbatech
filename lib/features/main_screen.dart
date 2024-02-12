@@ -39,6 +39,16 @@ class _MainScreenState extends State<MainScreen> {
         icon: iconsColumn(icon: AssetPath.cart, text: 'Cart', active: true),
         inactiveIcon:
             iconsColumn(icon: AssetPath.cart, text: 'Cart', active: false),
+        onPressed: (context){
+          PersistentNavBarNavigator.pushNewScreen(
+            context!,
+            screen: const CartScreen(),
+            withNavBar: false,
+            // OPTIONAL VALUE. True by default.
+            pageTransitionAnimation:
+            PageTransitionAnimation.fade,
+          );
+        }
       ),
       PersistentBottomNavBarItem(
         icon:
