@@ -71,6 +71,7 @@ class StringManager {
   static const String specialInstructions = "Any special instructions?";
   static const String writeHere = "Write Here...";
   static const String addToCard = "Add to Cart";
+  static const String thereIsNo = "There is no items";
   static const String addToCardSuccess =
       'Added to your shopping cart successfully!';
 }

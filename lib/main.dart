@@ -9,6 +9,9 @@ import 'package:monasbatek/core/translations/translations.dart';
 import 'package:monasbatek/features/auth/presentation/controller/change_password_bloc/change_password_bloc.dart';
 import 'package:monasbatek/features/auth/presentation/controller/login_bloc/login_with_email_and_password_bloc.dart';
 import 'package:monasbatek/features/auth/presentation/controller/sign_up_bloc/sign_up_with_email_and_password_bloc.dart';
+import 'package:monasbatek/features/home/presentation/bloc/category_bloc/get_category_bloc.dart';
+import 'package:monasbatek/features/home/presentation/bloc/category_bloc/get_category_event.dart';
+import 'package:monasbatek/features/home/presentation/bloc/sub_category_bloc/get_category_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,6 +47,13 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => getIt<ChangePasswordBloc>(),
         ),
+        BlocProvider(
+          create: (context) =>
+              getIt<CategoriesBloc>(),
+        ),BlocProvider(
+          create: (context) =>
+              getIt<SubCategoriesBloc>(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -59,7 +69,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             scaffoldBackgroundColor: AppColors.backGroundColor),
         onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.login,
+        initialRoute: Routes.main,
       ),
     );
   }

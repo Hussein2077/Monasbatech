@@ -6,8 +6,8 @@ import 'package:monasbatek/features/auth/presentation/login_screen.dart';
 import 'package:monasbatek/features/auth/presentation/signup/sign_up.dart';
 import 'package:monasbatek/features/home/presentation/pages/sub_category_items.dart';
 import 'package:monasbatek/features/home/presentation/pages/sub_category_screen.dart';
-import 'package:monasbatek/features/product_details/presentation/pages/product_details.dart';
-
+import 'package:monasbatek/features/home/presentation/product_details/presentation/pages/product_details.dart';
+import 'package:monasbatek/features/main_screen.dart';
 import '../../features/home/presentation/pages/home_screen.dart';
 import '../../features/splash/presentation/pages/splash_screen.dart';
 
@@ -34,11 +34,11 @@ class RouteGenerator {
             pageBuilder: (context, animation, secondaryAnimation) =>
                 const SplashScreen(),
             transitionsBuilder: customAnimate);
-      // case Routes.main:
-      //   return PageRouteBuilder(
-      //       pageBuilder: (context, animation, secondaryAnimation) =>
-      //       const MainScreen(),
-      //       transitionsBuilder: customAnimate);
+      case Routes.main:
+        return PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+            const MainScreen(),
+            transitionsBuilder: customAnimate);
       case Routes.home:
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
@@ -75,9 +75,10 @@ class RouteGenerator {
                 const ChangePassword(),
             transitionsBuilder: customAnimate);
       case Routes.subCategory:
+        String categoryID = settings.arguments as String;
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-                const SubCategoryScreen(),
+                 SubCategoryScreen(categoryID: categoryID,),
             transitionsBuilder: customAnimate);
       case Routes.subCategoryItems:
         return PageRouteBuilder(

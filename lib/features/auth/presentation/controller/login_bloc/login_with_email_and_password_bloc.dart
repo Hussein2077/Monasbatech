@@ -8,7 +8,6 @@ import 'package:monasbatek/features/auth/presentation/controller/login_bloc/logi
 class LoginWithEmailAndPasswordBloc extends Bloc<BaseLoginWithEmailAndPasswordEvent,
     LoginWithEmailAndPasswordState> {
   LoginWithEmailAndPasswordUseCase loginWithEmailAndPasswordUseCase;
-
   LoginWithEmailAndPasswordBloc({required this.loginWithEmailAndPasswordUseCase})
       : super(LoginWithEmailAndPasswordInitial()) {
     on<LoginWithEmailAndPasswordEvent>((event, emit) async {

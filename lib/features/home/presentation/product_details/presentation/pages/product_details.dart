@@ -1,15 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:monasbatek/core/resource_manager/asset_path.dart';
+import 'package:monasbatek/core/resource_manager/colors.dart';
 import 'package:monasbatek/core/resource_manager/string_manager.dart';
+import 'package:monasbatek/core/utils/app_size.dart';
 import 'package:monasbatek/core/widgets/custom_text_field.dart';
 import 'package:monasbatek/core/widgets/cutom_text.dart';
 import 'package:monasbatek/core/widgets/main_button.dart';
-
-import '../../../../core/resource_manager/asset_path.dart';
-import '../../../../core/resource_manager/colors.dart';
-import '../../../../core/utils/app_size.dart';
-
 class ProductDetails extends StatefulWidget {
   ProductDetails({super.key});
 
@@ -22,7 +20,6 @@ class _ProductDetailsState extends State<ProductDetails> {
   int itemsCount = 1;
   @override
   Widget build(BuildContext context) {
-    AppSize().init(context);
 
     return SafeArea(
       child: Scaffold(

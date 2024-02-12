@@ -136,7 +136,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       email: emailController.text,
                       password: passwordController.text,
                     ));
-                  } else {}
+                  } else {
+                    errorSnackBar(context, StringManager.pleaseFill.tr());
+                  }
                 },
               ),
               SizedBox(

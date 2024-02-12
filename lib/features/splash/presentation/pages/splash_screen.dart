@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:monasbatek/core/utils/app_size.dart';
 
 import '../../../../core/resource_manager/asset_path.dart';
 
@@ -47,6 +48,8 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
+    AppSize().init(context);
+
     return Scaffold(
     //  backgroundColor: AppColors.scaffoldColor,
       body: SafeArea(
