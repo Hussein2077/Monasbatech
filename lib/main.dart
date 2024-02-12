@@ -52,10 +52,12 @@ class MyApp extends StatelessWidget {
         localizationsDelegates: context.localizationDelegates,
         builder: EasyLoading.init(),
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-          scaffoldBackgroundColor: AppColors.backGroundColor
-        ),
+            listTileTheme: ListTileThemeData(
+              horizontalTitleGap: 0, //here adjust based on your need
+            ),
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
+            scaffoldBackgroundColor: AppColors.backGroundColor),
         onGenerateRoute: RouteGenerator.getRoute,
         initialRoute: Routes.login,
       ),

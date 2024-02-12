@@ -57,6 +57,20 @@ class StringManager {
   static const String happyBirth = "Happy Birth Day";
   static const String cake = "Cake";
   static const String productName = "Chocolate";
+  static const String productDetailsName = "Italian tiramisu gateau";
   static const String productPrice = "120 RS";
   static const String companyName = "Exite Company";
+  static const String destination = '2.5 KM';
+  static const String descriptionTitle = 'Description';
+  static const String description =
+      'Italian and new tiramisu gateau at no cost, and the taste is as good as 200 grams of savouria biscuits or the alternative I talked about in the video. Toast, and the most important thing is that it should be dry, 3 eggs, and a packet of vanilla.';
+  static const String chooseSize = "Choose Size";
+  static const String small = "Small";
+  static const String medium = "Medium";
+  static const String large = "Large";
+  static const String specialInstructions = "Any special instructions?";
+  static const String writeHere = "Write Here...";
+  static const String addToCard = "Add to Cart";
+  static const String addToCardSuccess =
+      'Added to your shopping cart successfully!';
 }

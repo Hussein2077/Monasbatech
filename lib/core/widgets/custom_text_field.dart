@@ -8,6 +8,8 @@ class CustomTextField extends StatefulWidget {
   final double? width;
   final double? height;
   final int? maxLines;
+  final int? minLines;
+
   final TextEditingController? controller;
   final TextInputType keyboardType;
   final bool obscureText;
@@ -17,22 +19,23 @@ class CustomTextField extends StatefulWidget {
   final void Function()? onTap;
   final TextStyle? hintStyle;
 
-  const CustomTextField({
-    Key? key,
-    this.labelText,
-    this.controller,
-    this.keyboardType = TextInputType.text,
-    this.obscureText = false,
-    this.readOnly = false,
-    this.prefixIcon,
-    this.suffixIcon,
-    this.onTap,
-    this.hintText,
-    this.hintStyle,
-    this.width,
-    this.height,
-    this.maxLines,
-  }) : super(key: key);
+  const CustomTextField(
+      {Key? key,
+      this.labelText,
+      this.controller,
+      this.keyboardType = TextInputType.text,
+      this.obscureText = false,
+      this.readOnly = false,
+      this.prefixIcon,
+      this.suffixIcon,
+      this.onTap,
+      this.hintText,
+      this.hintStyle,
+      this.width,
+      this.height,
+      this.maxLines,
+      this.minLines})
+      : super(key: key);
 
   @override
   _CustomTextFieldState createState() => _CustomTextFieldState();
@@ -45,6 +48,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
       height: widget.height ?? AppSize.defaultSize! * 7,
       width: widget.width ?? AppSize.screenWidth! - (AppSize.defaultSize! * 4),
       child: TextFormField(
+        maxLines: widget.maxLines,
+        minLines: widget.minLines,
         onTap: widget.onTap,
         readOnly: widget.readOnly,
         style: TextStyle(
@@ -61,7 +66,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   color: AppColors.secondaryBackGroundColor,
                   fontSize: AppSize.defaultSize! * 1.4),
           suffixIcon: Padding(
-            padding:   EdgeInsets.all(AppSize.defaultSize!*.6),
+            padding: EdgeInsets.all(AppSize.defaultSize! * .6),
             child: widget.suffixIcon,
           ),
           prefixIconConstraints: BoxConstraints(
@@ -74,7 +79,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             fontSize: AppSize.screenHeight! * .02,
           ),
           prefixIcon: Padding(
-            padding:   EdgeInsets.all(AppSize.defaultSize!*.6),
+            padding: EdgeInsets.all(AppSize.defaultSize! * .6),
             child: widget.prefixIcon,
           ),
           enabledBorder: OutlineInputBorder(

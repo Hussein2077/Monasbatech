@@ -87,7 +87,7 @@ class RouteGenerator {
       case Routes.productDetails:
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-                const ProductDetails(),
+                ProductDetails(),
             transitionsBuilder: customAnimate);
 
       // case Routes.profile:
