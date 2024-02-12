@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monasbatek/core/resource_manager/asset_path.dart';
 import 'package:monasbatek/core/resource_manager/colors.dart';
+import 'package:monasbatek/core/widgets/custom_bottom_sheet.dart';
 import 'package:monasbatek/core/widgets/empty_widget.dart';
 import 'package:monasbatek/core/widgets/loading_widget.dart';
 import 'package:monasbatek/features/home/data/models/categoty_model.dart';
@@ -14,6 +15,7 @@ import 'package:monasbatek/features/home/presentation/bloc/category_bloc/get_cat
 import 'package:monasbatek/features/home/presentation/bloc/category_bloc/get_category_state.dart';
 import 'package:monasbatek/features/home/presentation/pages/sub_category_screen.dart';
 import 'package:monasbatek/features/home/presentation/widgets/custom_bottom_navigation.dart';
+import 'package:monasbatek/features/search/presentation/pages/search_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import '../../../../core/resource_manager/routes.dart';
@@ -43,7 +45,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    log('fffffffffffffffffff');
     AppSize().init(context);
     return Scaffold(
       body: SafeArea(
@@ -110,7 +111,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: AppSize.defaultSize! * 1.2,
                 ),
                 CustomSearchField(
-                  labelText: StringManager.search.tr(),
+                  onTap: () {
+                    PersistentNavBarNavigator.pushNewScreen(
+                      context,
+                      screen: SearchScreen(),
+                      withNavBar: true,
+                      // OPTIONAL VALUE. True by default.
+                      pageTransitionAnimation:
+                          PageTransitionAnimation.cupertino,
+                    );
+                  },
+                  labelText: StringManager.search,
                   prefixIcon: SvgPicture.asset(AssetPath.searchPrefixIcon),
                   suffixIcon: SvgPicture.asset(AssetPath.searchSuffixIcon),
                 ),
@@ -178,7 +189,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     } else if (state is CategoriesErrorMessageState) {
                       return ErrorWidget(state.errorMessage);
                     } else if (state is CategoriesLoadingState) {
-
                       if (isFirst == 0) {
                         return const LoadingWidget();
                       } else {
