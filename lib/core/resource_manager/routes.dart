@@ -9,6 +9,8 @@ import 'package:monasbatek/features/home/presentation/pages/sub_category_screen.
 import 'package:monasbatek/features/home/presentation/product_details/presentation/pages/product_details.dart';
 import 'package:monasbatek/features/main_screen.dart';
 import '../../features/home/presentation/pages/home_screen.dart';
+
+import '../../features/search/presentation/pages/search_screen.dart';
 import '../../features/splash/presentation/pages/splash_screen.dart';
 
 class Routes {
@@ -24,6 +26,7 @@ class Routes {
   static const String sendOTPCode = "/sendOTPCode";
   static const String changePassword = "/changePassword";
   static const String profile = "/profile";
+  static const String search = "/search";
 }
 
 class RouteGenerator {
@@ -37,7 +40,7 @@ class RouteGenerator {
       case Routes.main:
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-            const MainScreen(),
+                const MainScreen(),
             transitionsBuilder: customAnimate);
       case Routes.home:
         return PageRouteBuilder(
@@ -78,7 +81,9 @@ class RouteGenerator {
         String categoryID = settings.arguments as String;
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-                 SubCategoryScreen(categoryID: categoryID,),
+                SubCategoryScreen(
+                  categoryID: categoryID,
+                ),
             transitionsBuilder: customAnimate);
       case Routes.subCategoryItems:
         return PageRouteBuilder(
@@ -89,6 +94,11 @@ class RouteGenerator {
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
                 ProductDetails(),
+            transitionsBuilder: customAnimate);
+      case Routes.search:
+        return PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                SearchScreen(),
             transitionsBuilder: customAnimate);
 
       // case Routes.profile:
