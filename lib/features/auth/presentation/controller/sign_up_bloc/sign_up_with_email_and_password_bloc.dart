@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:monasbatek/core/resource_manager/string_manager.dart';
 import 'package:monasbatek/core/utils/api_helper.dart';
@@ -20,8 +21,8 @@ class SignUpWithEmailAndPasswordBloc extends Bloc<
           phone: event.phone,
           name: event.name));
       result.fold(
-          (l) => emit(const SignUpWithEmailAndPasswordSuccessMessageState(
-              successMessage: StringManager.loginSuccessfully)),
+          (l) => emit(    SignUpWithEmailAndPasswordSuccessMessageState(
+              successMessage: StringManager.loginSuccessfully.tr())),
           (r) => emit(SignUpWithEmailAndPasswordErrorMessageState(
               errorMessage: DioHelper().getTypeOfFailure(r))));
     });

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:monasbatek/core/resource_manager/string_manager.dart';
 import 'package:monasbatek/core/utils/api_helper.dart';
@@ -15,8 +16,8 @@ class LoginWithEmailAndPasswordBloc extends Bloc<BaseLoginWithEmailAndPasswordEv
       final result = await loginWithEmailAndPasswordUseCase
           .call(AuthModel(email: event.email, password: event.password));
       result.fold(
-          (l) => emit(const LoginWithEmailAndPasswordSuccessMessageState(
-              successMessage: StringManager.loginSuccessfully)),
+          (l) => emit(  LoginWithEmailAndPasswordSuccessMessageState(
+              successMessage: StringManager.loginSuccessfully.tr())),
           (r) => emit(LoginWithEmailAndPasswordErrorMessageState(
               errorMessage: DioHelper().getTypeOfFailure(r))));
     });

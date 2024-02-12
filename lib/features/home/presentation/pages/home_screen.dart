@@ -110,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: AppSize.defaultSize! * 1.2,
                 ),
                 CustomSearchField(
-                  labelText: StringManager.search,
+                  labelText: StringManager.search.tr(),
                   prefixIcon: SvgPicture.asset(AssetPath.searchPrefixIcon),
                   suffixIcon: SvgPicture.asset(AssetPath.searchSuffixIcon),
                 ),
@@ -125,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: AppSize.defaultSize! * 1.2,
                 ),
                 Text(
-                  StringManager.askOccasion,
+                  StringManager.askOccasion.tr(),
                   style: TextStyle(
                     fontSize: AppSize.defaultSize! * 2,
                     color: AppColors.primaryColor,

@@ -61,7 +61,7 @@ class SubCategoryItems extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 8),
                   child: CustomSearchField(
-                    labelText: StringManager.search,
+                    labelText: StringManager.search.tr(),
                     prefixIcon: SvgPicture.asset(AssetPath.searchPrefixIcon),
                     suffixIcon: SvgPicture.asset(AssetPath.searchSuffixIcon),
                   ),
@@ -89,9 +89,9 @@ class SubCategoryItems extends StatelessWidget {
                         },
                         imagePath: AssetPath.productImg,
                         companyImg: AssetPath.companyImg,
-                        companyName: StringManager.companyName,
-                        productName: StringManager.productName,
-                        productPrice: StringManager.productPrice,
+                        companyName: StringManager.companyName.tr(),
+                        productName: StringManager.productName.tr(),
+                        productPrice: StringManager.productPrice.tr(),
                       ),
                     );
                   },

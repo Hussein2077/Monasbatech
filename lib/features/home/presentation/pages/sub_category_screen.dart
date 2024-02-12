@@ -81,7 +81,7 @@ class _SubCategoryScreenState extends State<SubCategoryScreen> {
               children: [
                 //----- Add sub category message ---------
                 Text(
-                  StringManager.happyBirth,
+                  StringManager.happyBirth.tr(),
                   style: TextStyle(
                     fontSize: AppSize.defaultSize! * 2,
                     color: AppColors.primaryColor,

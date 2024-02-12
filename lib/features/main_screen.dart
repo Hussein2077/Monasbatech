@@ -4,6 +4,7 @@ import 'package:monasbatek/core/resource_manager/asset_path.dart';
 import 'package:monasbatek/core/resource_manager/colors.dart';
 import 'package:monasbatek/core/utils/app_size.dart';
 import 'package:monasbatek/core/widgets/cutom_text.dart';
+import 'package:monasbatek/features/cart/presentation/cart_screen.dart';
 import 'package:monasbatek/features/home/presentation/pages/home_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
@@ -20,10 +21,10 @@ class _MainScreenState extends State<MainScreen> {
 
   List<Widget> _buildScreens() {
     return [
-      HomeScreen(),
-      SizedBox(),
-      SizedBox(),
-      SizedBox(),
+      const HomeScreen(),
+      const CartScreen(),
+      const  SizedBox(),
+      const  SizedBox(),
     ];
   }
 

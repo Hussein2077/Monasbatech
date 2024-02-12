@@ -201,7 +201,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       children: [
                         Flexible(
                           child: Text(
-                            StringManager.description,
+                            StringManager.description.tr(),
                             style: TextStyle(
                               color: AppColors.greyColor,
                               fontSize: AppSize.defaultSize! * 1.5,
@@ -419,7 +419,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             height: AppSize.screenHeight! * 0.02,
                           ),
                           MainButton(
-                            text: StringManager.addToCard,
+                            text: StringManager.addToCard.tr(),
                             onTap: () {
                               showModalBottomSheet<void>(
                                   context: context,
