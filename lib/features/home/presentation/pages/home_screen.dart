@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       withNavBar: true,
                       // OPTIONAL VALUE. True by default.
                       pageTransitionAnimation:
-                          PageTransitionAnimation.cupertino,
+                          PageTransitionAnimation.fade,
                     );
                   },
                   labelText: StringManager.search,
