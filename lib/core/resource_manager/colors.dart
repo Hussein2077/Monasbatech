@@ -8,6 +8,7 @@ class AppColors {
   static const Color gridViewContainerColor = Color(0xFFF0D9F2);
   //####################################
   static const Color black = Color(0xFF000000);
+  static const Color white = Colors.white;
   static const Color containerColor = Color.fromRGBO(234, 232, 237, 1);
   static const Color blackColor = Color.fromRGBO(68, 68, 68, 1);
   static const Color greyColor = Color.fromRGBO(128, 129, 132, 1);

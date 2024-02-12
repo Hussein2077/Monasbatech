@@ -8,6 +8,10 @@ import 'package:monasbatek/core/utils/app_size.dart';
 import 'package:monasbatek/core/widgets/custom_text_field.dart';
 import 'package:monasbatek/core/widgets/cutom_text.dart';
 import 'package:monasbatek/core/widgets/main_button.dart';
+
+import '../../../../../../core/widgets/custom_bottom_sheet.dart';
+import '../../../widgets/bottom_sheet_content.dart';
+
 class ProductDetails extends StatefulWidget {
   ProductDetails({super.key});
 
@@ -20,7 +24,6 @@ class _ProductDetailsState extends State<ProductDetails> {
   int itemsCount = 1;
   @override
   Widget build(BuildContext context) {
-
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -421,53 +424,10 @@ class _ProductDetailsState extends State<ProductDetails> {
                           MainButton(
                             text: StringManager.addToCard.tr(),
                             onTap: () {
-                              showModalBottomSheet<void>(
-                                  context: context,
-                                  builder: (context) {
-                                    return Container(
-                                      height: AppSize.screenHeight! * 0.3,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(17),
-                                          topRight: Radius.circular(17),
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(top: 40),
-                                        child: Center(
-                                          child: Column(
-                                            children: [
-                                              Text(
-                                                StringManager.addToCardSuccess
-                                                    .tr(),
-                                                textAlign: TextAlign.right,
-                                                style: TextStyle(
-                                                  color: Color(0xFF109549),
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w700,
-                                                  height: 0.09,
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: AppSize.screenHeight! *
-                                                    0.02,
-                                              ),
-                                              Container(
-                                                width:
-                                                    AppSize.screenWidth! * 0.5,
-                                                child: Divider(),
-                                              ),
-                                              SizedBox(
-                                                height: AppSize.screenHeight! *
-                                                    0.02,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  });
+                              showCustomBottomSheet(
+                                context,
+                                BottomSheetContent(),
+                              );
                             },
                           )
                         ],

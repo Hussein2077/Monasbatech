@@ -75,4 +75,6 @@ class StringManager {
   static const String thereIsNo = "There is no items";
   static const String addToCardSuccess =
       'Added to your shopping cart successfully!';
+  static const String buy = 'Buy Nows';
+  static const String later = 'Later';
 }

@@ -27,5 +27,6 @@ class AssetPath {
   static const uploadIcon = "$pathImage/Upload.svg";
   static const profileChatIcon = "$pathImage/coloredChatIcon.svg";
   static const profileCompanyImg = "$pathImage/profileImg.png";
+  static const productPreview = "$pathImage/Preview.png";
   static const location = "$pathImage/Location.svg";
 }
