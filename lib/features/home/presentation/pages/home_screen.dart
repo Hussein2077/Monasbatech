@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     PersistentNavBarNavigator.pushNewScreen(
                       context,
                       screen: SearchScreen(),
-                      withNavBar: true,
+                      withNavBar: false,
                       // OPTIONAL VALUE. True by default.
                       pageTransitionAnimation:
                           PageTransitionAnimation.cupertino,

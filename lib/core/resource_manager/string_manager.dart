@@ -76,4 +76,12 @@ class StringManager {
       'Added to your shopping cart successfully!';
   static const String buy = 'Buy Nows';
   static const String later = 'Later';
+  static const String searchTtitle = 'Search';
+  static const String recently = 'Recently';
+  static const String flower = 'Flower';
+  static const String filterBy = 'Filter by';
+  static const String apply = 'Apply';
+  static const String priceTitle = 'Price';
+  static const String product = 'Product';
+  static const String provider = 'Provider';
 }

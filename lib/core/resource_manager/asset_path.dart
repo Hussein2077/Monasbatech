@@ -28,5 +28,8 @@ class AssetPath {
   static const profileChatIcon = "$pathImage/coloredChatIcon.svg";
   static const profileCompanyImg = "$pathImage/profileImg.png";
   static const productPreview = "$pathImage/Preview.png";
+  static const providerImg = "$pathImage/providerImg.png";
   static const location = "$pathImage/Location.svg";
+  static const removeRecentSearch = "$pathImage/x.svg";
+  static const star = "$pathImage/Star.svg";
 }
