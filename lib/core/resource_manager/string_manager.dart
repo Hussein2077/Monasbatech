@@ -83,3 +83,12 @@ class StringManager {
   static const String delivery = 'delivery';
   static const String totalPrice = 'total price';
  }
+  static const String searchTtitle = 'Search';
+  static const String recently = 'Recently';
+  static const String flower = 'Flower';
+  static const String filterBy = 'Filter by';
+  static const String apply = 'Apply';
+  static const String priceTitle = 'Price';
+  static const String product = 'Product';
+  static const String provider = 'Provider';
+}
