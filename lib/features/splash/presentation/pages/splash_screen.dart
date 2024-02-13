@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:monasbatek/core/resource_manager/routes.dart';
 import 'package:monasbatek/core/utils/app_size.dart';
 
 import '../../../../core/resource_manager/asset_path.dart';
@@ -14,36 +15,42 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
-  AnimationController? _animationController;
-  Animation? _animation;
+  late AnimationController _controller;
+  late Animation<double> _animationScale;
+  late Animation<double> _animationOpacity;
+
+  @override
+  void dispose() {
+    _controller.dispose(); // Dispose the animation controller
+    super.dispose();
+  }
 
   @override
   void initState() {
     super.initState();
-
-    _animationController = AnimationController(
-      duration: const Duration(seconds: 2),
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 300),
       vsync: this,
     );
 
-    _animation = Tween(begin: Offset(0, 0), end: Offset(-0.2, -0.2))
-        .animate(_animationController!)
-      ..addListener(() {
-        setState(() {});
+    // الأنيميشن للانبثاق
+    _animationScale = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.elasticOut,
+    );
+    Timer(const Duration(seconds: 1), () {
+      _controller.forward().then((_) {
+        Timer(const Duration(seconds: 2), () {
+          Navigator.of(context).pushReplacementNamed(Routes.login);
+        });
       });
-
-    _animationController!.forward();
-
-    Timer(Duration(seconds: 4), () {
-      // الانتقال إلى الشاشة التالية
-      //  Navigator.pushNamed(context, Routes.onBoardingScreen);
     });
-  }
 
-  @override
-  void dispose() {
-    _animationController?.dispose();
-    super.dispose();
+    // الأنيميشن للظهور
+    _animationOpacity =
+        Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
+
+    // تأخير بدء الأنيميشن
   }
 
   @override
@@ -51,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen>
     AppSize().init(context);
 
     return Scaffold(
-    //  backgroundColor: AppColors.scaffoldColor,
+      //  backgroundColor: AppColors.scaffoldColor,
       body: SafeArea(
         child: Stack(
           children: [

@@ -104,12 +104,12 @@ class RouteGenerator {
             pageBuilder: (context, animation, secondaryAnimation) =>
                 SearchScreen(),
             transitionsBuilder: customAnimate);
-        case Routes.buyingDone:
+      case Routes.buyingDone:
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
                 const BuyingDone(),
             transitionsBuilder: customAnimate);
-        case Routes.choosePayment:
+      case Routes.choosePayment:
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
                 const ChoosePayment(),

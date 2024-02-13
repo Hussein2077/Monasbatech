@@ -49,11 +49,10 @@ class MyApp extends StatelessWidget {
           create: (context) => getIt<ChangePasswordBloc>(),
         ),
         BlocProvider(
-          create: (context) =>
-              getIt<CategoriesBloc>(),
-        ),BlocProvider(
-          create: (context) =>
-              getIt<SubCategoriesBloc>(),
+          create: (context) => getIt<CategoriesBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<SubCategoriesBloc>(),
         ),
       ],
       child: MaterialApp(
@@ -69,10 +68,9 @@ class MyApp extends StatelessWidget {
             ),
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
-
             scaffoldBackgroundColor: AppColors.backGroundColor),
         onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.main,
+        initialRoute: Routes.splash,
       ),
     );
   }

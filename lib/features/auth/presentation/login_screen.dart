@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
         if (state is LoginWithEmailAndPasswordSuccessMessageState) {
           EasyLoading.dismiss();
           Navigator.pushNamedAndRemoveUntil(
-              context, Routes.home, (route) => false);
+              context, Routes.main, (route) => false);
         } else if (state is LoginWithEmailAndPasswordErrorMessageState) {
           EasyLoading.dismiss();
 
