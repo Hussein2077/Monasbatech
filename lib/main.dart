@@ -64,7 +64,8 @@ class MyApp extends StatelessWidget {
         navigatorKey: getIt<NavigationService>().navigatorKey,
         theme: ThemeData(
             listTileTheme: ListTileThemeData(
-              horizontalTitleGap: 0, //here adjust based on your need
+              horizontalTitleGap: 0,
+              contentPadding: EdgeInsets.zero//here adjust based on your need
             ),
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,

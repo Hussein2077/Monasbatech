@@ -107,11 +107,9 @@ class _CustomSearchBottomSheetState extends State<CustomSearchBottomSheet> {
             },
           ),
           SizedBox(
-            height: AppSize.screenHeight! * 0.01,
+            height: AppSize.screenHeight! * 0.04,
           ),
-          SizedBox(
-            height: AppSize.screenHeight! * 0.01,
-          ),
+
           // add apply Main Color
           MainButton(
             onTap: () => Navigator.of(context).push(

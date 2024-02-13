@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monasbatek/core/widgets/custom_items_decoration.dart';
 
@@ -92,7 +93,7 @@ class SubCategoryItems extends StatelessWidget {
                         companyName: StringManager.companyName.tr(),
                         productName: StringManager.productName.tr(),
                         productPrice: StringManager.productPrice.tr(),
-                      ),
+                      ).animate().fade().scale(),
                     );
                   },
                 ),

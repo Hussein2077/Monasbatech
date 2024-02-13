@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:monasbatek/core/resource_manager/asset_path.dart';
 import 'package:monasbatek/core/resource_manager/colors.dart';
 import 'package:monasbatek/core/resource_manager/routes.dart';
@@ -28,11 +29,11 @@ class _CartScreenState extends State<CartScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          RadioListCart(),
+          RadioListCart().animate().fade().scale(),
           Divider(
             color: AppColors.greyColor.withOpacity(.5),
           ),
-          RadioListCart(),
+          RadioListCart().animate().fade().scale(),
           Divider(
             color: AppColors.greyColor.withOpacity(.5),
           ),

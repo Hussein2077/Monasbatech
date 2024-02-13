@@ -238,10 +238,10 @@ class _ProductDetailsState extends State<ProductDetails> {
                       height: AppSize.defaultSize! * 1.5,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SizedBox(
-                          width: AppSize.screenWidth! * 0.3,
+                        Expanded(
+                          // width: AppSize.screenWidth! * 0.3,
                           child: RadioListTile(
                             value: 1,
                             groupValue: _selectedValue,
@@ -251,11 +251,15 @@ class _ProductDetailsState extends State<ProductDetails> {
                                     value!; // Update _selectedValue when option 1 is selected
                               });
                             },
-                            title: Text(StringManager.small.tr()),
+                            title:CustomText(
+                              text:StringManager.small.tr() ,
+                              fontSize: AppSize.defaultSize!*1.4,
+                              fontWeight: FontWeight.w500,
+                            ) ,
                           ),
                         ),
-                        SizedBox(
-                          width: AppSize.screenWidth! * 0.35,
+                        Expanded(
+                          // width: AppSize.screenWidth! * 0.35,
                           child: RadioListTile(
                             value: 2,
                             groupValue: _selectedValue,
@@ -265,11 +269,16 @@ class _ProductDetailsState extends State<ProductDetails> {
                                     value!; // Update _selectedValue when option 1 is selected
                               });
                             },
-                            title: Text(StringManager.medium.tr()),
+                            
+                            title: CustomText(
+                              text:StringManager.medium.tr() ,
+                              fontSize: AppSize.defaultSize!*1.4,
+                              fontWeight: FontWeight.w500,
+                            ) ,
                           ),
                         ),
-                        SizedBox(
-                          width: AppSize.screenWidth! * 0.3,
+                        Expanded(
+                          // width: AppSize.screenWidth! * 0.3,
                           child: RadioListTile(
                             value: 3,
                             groupValue: _selectedValue,
@@ -279,7 +288,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                                     value!; // Update _selectedValue when option 1 is selected
                               });
                             },
-                            title: Text(StringManager.large.tr()),
+                            title: CustomText(
+                              text:StringManager.large.tr() ,
+                              fontSize: AppSize.defaultSize!*1.4,
+                              fontWeight: FontWeight.w500,
+                            ) ,
                           ),
                         ),
                       ],

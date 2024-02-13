@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monasbatek/core/resource_manager/asset_path.dart';
@@ -70,7 +71,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             backgroundColor: Colors.transparent,
                             maxRadius: AppSize.defaultSize! * 2.5,
                             child: Image.asset(AssetPath.profile),
-                          ),
+                          )  .animate()
+                              .fadeIn() // uses `Animate.defaultDuration`
+                              .scale() // inherits duration from fadeIn
+                              .move(delay: 300.ms, duration: 800.ms),
                         ),
                         SizedBox(
                           width: AppSize.defaultSize! * 1,
@@ -111,6 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: AppSize.defaultSize! * 1.2,
                 ),
                 CustomSearchField(
+                  readOnly: true,
                   onTap: () {
                     PersistentNavBarNavigator.pushNewScreen(
                       context,
@@ -142,7 +147,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: AppColors.primaryColor,
                     fontWeight: FontWeight.bold,
                   ),
-                ),
+                )  .animate()
+                    .fadeIn() // uses `Animate.defaultDuration`
+                    .scale() // inherits duration from fadeIn
+                    .move(delay: 300.ms, duration: 800.ms),
                 //--------------- AddGridgView-----
                 SizedBox(
                   height: AppSize.defaultSize! * 1.2,
@@ -182,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   },
                                   child: CustomGridViewCard(
                                     categoryModel: state.categories[index],
-                                  ),
+                                  ).animate().fade().scale(),
                                 );
                               },
                             );

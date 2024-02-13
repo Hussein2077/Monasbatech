@@ -10,16 +10,16 @@ void showCustomBottomSheet(BuildContext context, Widget widget) {
       context: context,
       builder: (context) {
         return Container(
-          height: AppSize.screenHeight! * 0.35,
+          height: AppSize.screenHeight! * 0.45,
           decoration: BoxDecoration(
             color: AppColors.backGroundColor,
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(17),
-              topRight: Radius.circular(17),
+              topLeft: Radius.circular(AppSize.defaultSize!*1.7),
+              topRight: Radius.circular(AppSize.defaultSize!*1.7),
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(top: 40),
+            padding:   EdgeInsets.only(top: AppSize.defaultSize!*4),
             child: Center(child: widget),
           ),
         );
