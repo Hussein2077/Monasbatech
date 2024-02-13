@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monasbatek/core/resource_manager/asset_path.dart';
 import 'package:monasbatek/core/resource_manager/colors.dart';
+import 'package:monasbatek/core/resource_manager/navigation_service.dart';
+import 'package:monasbatek/core/service/service_locator.dart';
 import 'package:monasbatek/core/utils/app_size.dart';
 import 'package:monasbatek/core/widgets/cutom_text.dart';
 import 'package:monasbatek/features/cart/presentation/cart_screen.dart';
@@ -23,8 +25,8 @@ class _MainScreenState extends State<MainScreen> {
     return [
       const HomeScreen(),
       const CartScreen(),
-      const  SizedBox(),
-      const  SizedBox(),
+      const SizedBox(),
+      const SizedBox(),
     ];
   }
 
@@ -36,29 +38,27 @@ class _MainScreenState extends State<MainScreen> {
             iconsColumn(icon: AssetPath.home, text: 'Home', active: false),
       ),
       PersistentBottomNavBarItem(
-        icon: iconsColumn(icon: AssetPath.cart, text: 'Cart', active: true),
+          icon: iconsColumn(icon: AssetPath.cart, text: 'Cart', active: true),
+          inactiveIcon:
+              iconsColumn(icon: AssetPath.cart, text: 'Cart', active: false),
+          onPressed: (context) {
+            PersistentNavBarNavigator.pushNewScreen(
+              context ??
+                  getIt<NavigationService>().navigatorKey.currentContext!,
+              screen: const CartScreen(),
+              withNavBar: false,
+              // OPTIONAL VALUE. True by default.
+              pageTransitionAnimation: PageTransitionAnimation.fade,
+            );
+          }),
+      PersistentBottomNavBarItem(
+        icon: iconsColumn(icon: AssetPath.chat, text: 'Message', active: true),
         inactiveIcon:
-            iconsColumn(icon: AssetPath.cart, text: 'Cart', active: false),
-        onPressed: (context){
-          PersistentNavBarNavigator.pushNewScreen(
-            context!,
-            screen: const CartScreen(),
-            withNavBar: false,
-            // OPTIONAL VALUE. True by default.
-            pageTransitionAnimation:
-            PageTransitionAnimation.fade,
-          );
-        }
+            iconsColumn(icon: AssetPath.chat, text: 'Message', active: false),
       ),
       PersistentBottomNavBarItem(
-        icon:
-            iconsColumn(icon: AssetPath.chat, text: 'Message', active: true),
-        inactiveIcon: iconsColumn(
-            icon: AssetPath.chat, text: 'Message', active: false),
-      ),
-      PersistentBottomNavBarItem(
-        icon:
-            iconsColumn(icon: AssetPath.profileNavigation, text: 'Profile', active: true),
+        icon: iconsColumn(
+            icon: AssetPath.profileNavigation, text: 'Profile', active: true),
         inactiveIcon: iconsColumn(
             icon: AssetPath.profileNavigation, text: 'Profile', active: false),
       ),

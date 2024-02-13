@@ -1,3 +1,4 @@
+import 'package:monasbatek/core/resource_manager/navigation_service.dart';
 import 'package:monasbatek/features/auth/data/auth_remote_data_source.dart';
 import 'package:monasbatek/features/auth/data/repo_imp.dart';
 import 'package:monasbatek/features/auth/domain/repo/base_repo.dart';
@@ -59,5 +60,6 @@ class ServerLocator {
         () => HomeRemotelyDateSource());
     getIt.registerLazySingleton<HomeBaseRepository>(
         () => HomeRepositoryImp(homeBaseRemotelyDataSource: getIt()));
+    getIt.registerLazySingleton(() => NavigationService());
   }
 }

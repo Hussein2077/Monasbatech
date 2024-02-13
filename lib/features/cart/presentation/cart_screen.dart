@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:monasbatek/core/resource_manager/asset_path.dart';
 import 'package:monasbatek/core/resource_manager/colors.dart';
+import 'package:monasbatek/core/resource_manager/routes.dart';
 import 'package:monasbatek/core/resource_manager/string_manager.dart';
 import 'package:monasbatek/core/utils/app_size.dart';
 import 'package:monasbatek/core/widgets/app_bar.dart';
@@ -65,7 +66,7 @@ class _CartScreenState extends State<CartScreen> {
                   }),
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Material(
             color: Colors.white,
             borderRadius: BorderRadius.only(
@@ -73,7 +74,7 @@ class _CartScreenState extends State<CartScreen> {
                 topRight: Radius.circular(AppSize.defaultSize! * 3)),
             child: SizedBox(
               width: AppSize.screenWidth!,
-              height: AppSize.screenHeight! * .3,
+              height: AppSize.screenHeight! * .35,
               child: Padding(
                 padding: EdgeInsets.all(AppSize.defaultSize! * 4),
                 child: Column(
@@ -130,12 +131,14 @@ class _CartScreenState extends State<CartScreen> {
                     ),   SizedBox(
                       height: AppSize.defaultSize! * 2.4,
                     ),
-                    MainButton(text: StringManager.buy.tr()),
+                    MainButton(text: StringManager.buy.tr(),onTap: (){
+                      Navigator.pushNamed(context, Routes.buyingDone);
+                    },),
                   ],
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

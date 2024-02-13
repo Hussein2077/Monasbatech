@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:monasbatek/core/resource_manager/colors.dart';
+import 'package:monasbatek/core/resource_manager/navigation_service.dart';
 import 'package:monasbatek/core/resource_manager/routes.dart';
 import 'package:monasbatek/core/service/service_locator.dart';
 import 'package:monasbatek/core/translations/translations.dart';
@@ -61,12 +62,14 @@ class MyApp extends StatelessWidget {
         supportedLocales: context.supportedLocales,
         localizationsDelegates: context.localizationDelegates,
         builder: EasyLoading.init(),
+        navigatorKey: getIt<NavigationService>().navigatorKey,
         theme: ThemeData(
             listTileTheme: ListTileThemeData(
               horizontalTitleGap: 0, //here adjust based on your need
             ),
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
+
             scaffoldBackgroundColor: AppColors.backGroundColor),
         onGenerateRoute: RouteGenerator.getRoute,
         initialRoute: Routes.main,

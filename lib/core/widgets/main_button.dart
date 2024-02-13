@@ -10,7 +10,7 @@ class MainButton extends StatelessWidget {
       this.textColor,
       required this.text,
       this.height,
-      this.width});
+      this.width, this.fontSize, this.borderRadius});
 
   final void Function()? onTap;
   final Color? color;
@@ -18,6 +18,8 @@ class MainButton extends StatelessWidget {
   final String text;
   final double? height;
   final double? width;
+  final double? fontSize;
+  final double? borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class MainButton extends StatelessWidget {
         width: width ?? AppSize.screenWidth! * .9,
         decoration: BoxDecoration(
           color: color ?? AppColors.primaryColor,
-          borderRadius: BorderRadius.circular(AppSize.defaultSize!),
+          borderRadius: BorderRadius.circular(borderRadius??AppSize.defaultSize!),
         ),
         child: Center(
           child: Text(
@@ -36,7 +38,7 @@ class MainButton extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: textColor ?? Colors.white,
-              fontSize: AppSize.defaultSize! * 2,
+              fontSize:fontSize ??AppSize.defaultSize! * 2,
             ),
           ),
         ),

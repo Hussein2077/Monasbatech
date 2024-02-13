@@ -34,4 +34,5 @@ class AssetPath {
   static const cake = "$pathImage/cake.png";
   static const removeRecentSearch = "$pathImage/x.svg";
   static const star = "$pathImage/Star.svg";
+  static const plus = "$pathImage/Plus.png";
 }

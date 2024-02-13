@@ -4,6 +4,8 @@ import 'package:monasbatek/features/auth/presentation/forget%20password/forget_p
 import 'package:monasbatek/features/auth/presentation/forget%20password/otp_code_screen.dart';
 import 'package:monasbatek/features/auth/presentation/login_screen.dart';
 import 'package:monasbatek/features/auth/presentation/signup/sign_up.dart';
+import 'package:monasbatek/features/cart/presentation/widgets/buying_done.dart';
+import 'package:monasbatek/features/cart/presentation/widgets/choose_payment.dart';
 import 'package:monasbatek/features/home/presentation/pages/sub_category_items.dart';
 import 'package:monasbatek/features/home/presentation/pages/sub_category_screen.dart';
 import 'package:monasbatek/features/home/presentation/product_details/presentation/pages/product_details.dart';
@@ -27,6 +29,8 @@ class Routes {
   static const String changePassword = "/changePassword";
   static const String profile = "/profile";
   static const String search = "/search";
+  static const String buyingDone = "/BuyingDone";
+  static const String choosePayment = "/choosePayment";
 }
 
 class RouteGenerator {
@@ -99,6 +103,16 @@ class RouteGenerator {
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
                 SearchScreen(),
+            transitionsBuilder: customAnimate);
+        case Routes.buyingDone:
+        return PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                const BuyingDone(),
+            transitionsBuilder: customAnimate);
+        case Routes.choosePayment:
+        return PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                const ChoosePayment(),
             transitionsBuilder: customAnimate);
 
       // case Routes.profile:

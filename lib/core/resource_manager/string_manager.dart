@@ -82,7 +82,6 @@ class StringManager {
   static const String total = 'total';
   static const String delivery = 'delivery';
   static const String totalPrice = 'total price';
- }
   static const String searchTtitle = 'Search';
   static const String recently = 'Recently';
   static const String flower = 'Flower';
@@ -91,4 +90,13 @@ class StringManager {
   static const String priceTitle = 'Price';
   static const String product = 'Product';
   static const String provider = 'Provider';
-}
+  static const String confirmTheProcess = 'confirm the process';
+  static const String address = 'Address';
+  static const String chooseAddress = 'Choose Address';
+  static const String choosePayment = 'Choose payment';
+  static const String coupon = 'Add coupon';
+  static const String payment = 'payment';
+  static const String pay = 'Pay';
+ }
+
+
