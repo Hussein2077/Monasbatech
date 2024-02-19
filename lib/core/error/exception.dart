@@ -9,7 +9,7 @@ class ErrorModelException implements Exception {
 
   factory ErrorModelException.fromJson(Map<String, dynamic> json, {int? code}) {
     return ErrorModelException(
-        errorMessage: (code == 404||code==400) ? json['message'] : json['error']);
+        errorMessage: (code ==500) ? json['message'] : json['error']);
   }
 }
 

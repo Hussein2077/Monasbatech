@@ -194,7 +194,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 );
                               },
                             );
-                    } else if (state is CategoriesErrorMessageState) {
+                    }
+                    else if (state is CategoriesErrorMessageState) {
                       return ErrorWidget(state.errorMessage);
                     } else if (state is CategoriesLoadingState) {
                       if (isFirst == 0) {
