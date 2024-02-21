@@ -76,7 +76,7 @@ class StringManager {
   static const String addToCardSuccess =
       'Added to your shopping cart successfully!';
   static const String buyNow = 'Buy Now';
-  static const String buy= 'Buy';
+  static const String buy = 'Buy';
   static const String later = 'Later';
   static const String suggestion = 'Suggestion products';
   static const String total = 'total';
@@ -97,6 +97,5 @@ class StringManager {
   static const String coupon = 'Add coupon';
   static const String payment = 'payment';
   static const String pay = 'Pay';
- }
-
-
+  static const String editPersonalProfile = 'Edit Personal Profile';
+}

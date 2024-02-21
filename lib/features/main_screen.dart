@@ -10,6 +10,8 @@ import 'package:monasbatek/features/cart/presentation/cart_screen.dart';
 import 'package:monasbatek/features/home/presentation/pages/home_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
+import 'profile/presentation/pages/profile_screen.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
   static int mainIndex = 0;
@@ -26,7 +28,7 @@ class _MainScreenState extends State<MainScreen> {
       const HomeScreen(),
       const CartScreen(),
       const SizedBox(),
-      const SizedBox(),
+      const ProfileScreen(),
     ];
   }
 

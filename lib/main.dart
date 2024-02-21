@@ -63,10 +63,8 @@ class MyApp extends StatelessWidget {
         builder: EasyLoading.init(),
         navigatorKey: getIt<NavigationService>().navigatorKey,
         theme: ThemeData(
-            listTileTheme: ListTileThemeData(
-              horizontalTitleGap: 0,
-              contentPadding: EdgeInsets.zero//here adjust based on your need
-            ),
+            listTileTheme: const ListTileThemeData(
+                horizontalTitleGap: 0, contentPadding: EdgeInsets.zero),
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
             scaffoldBackgroundColor: AppColors.backGroundColor),

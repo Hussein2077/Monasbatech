@@ -35,4 +35,5 @@ class AssetPath {
   static const removeRecentSearch = "$pathImage/x.svg";
   static const star = "$pathImage/Star.svg";
   static const plus = "$pathImage/Plus.png";
+  static const arrowRight = "$pathImage/arrow_right.svg";
 }
