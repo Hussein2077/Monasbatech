@@ -12,6 +12,7 @@ import 'package:monasbatek/features/auth/presentation/controller/login_bloc/logi
 import 'package:monasbatek/features/auth/presentation/controller/sign_up_bloc/sign_up_with_email_and_password_bloc.dart';
 import 'package:monasbatek/features/home/presentation/bloc/category_bloc/get_category_bloc.dart';
 import 'package:monasbatek/features/home/presentation/bloc/category_bloc/get_category_event.dart';
+import 'package:monasbatek/features/home/presentation/bloc/get_items_bloc/get_items_bloc.dart';
 import 'package:monasbatek/features/home/presentation/bloc/sub_category_bloc/get_category_bloc.dart';
 
 Future<void> main() async {
@@ -54,6 +55,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => getIt<SubCategoriesBloc>(),
         ),
+        BlocProvider(
+          create: (context) => getIt<ItemsBloc>(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -69,7 +73,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             scaffoldBackgroundColor: AppColors.backGroundColor),
         onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.splash,
+        initialRoute: Routes.main,
       ),
     );
   }

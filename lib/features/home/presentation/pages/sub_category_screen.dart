@@ -111,7 +111,7 @@ class _SubCategoryScreenState extends State<SubCategoryScreen> {
                               itemBuilder: (context, index) {
                                 return InkWell(
                                   onTap: () => Navigator.of(context)
-                                      .pushNamed(Routes.subCategoryItems),
+                                      .pushNamed(Routes.subCategoryItems,arguments: state.categories[index].id.toString()),
                                   child: CustomGridViewCard(
                                       categoryModel: state.categories[index]),
                                 );

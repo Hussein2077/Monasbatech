@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monasbatek/core/resource_manager/asset_path.dart';
 import 'package:monasbatek/core/resource_manager/colors.dart';
 import 'package:monasbatek/core/resource_manager/string_manager.dart';
+import 'package:monasbatek/core/widgets/cached_network_image.dart';
 
 import '../utils/app_size.dart';
 
@@ -15,6 +16,7 @@ class CustomItemsDecoration extends StatelessWidget {
       required this.companyName,
       required this.companyImg,
       required this.favouriteFunction});
+
   final String imagePath;
   final String productName;
   final String productPrice;
@@ -35,11 +37,10 @@ class CustomItemsDecoration extends StatelessWidget {
         children: [
           Stack(
             children: [
-              SizedBox(
-                child: Image.asset(
-                  AssetPath.productImg,
-                  fit: BoxFit.cover,
-                ),
+              CachedNetworkCustom(
+                url: imagePath,
+                width: AppSize.defaultSize!*13.8,
+                height: AppSize.defaultSize!*14.8,
               ),
               Positioned(
                 top: 5,
@@ -103,9 +104,12 @@ class CustomItemsDecoration extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    SizedBox(
-                      child: Image.asset(companyImg),
+                    CachedNetworkCustom(
+                      url: companyImg,
+                      width: AppSize.defaultSize!*2,
+                      height: AppSize.defaultSize!*2,
                     ),
+
                     SizedBox(
                       width: AppSize.screenWidth! * 0.01,
                     ),

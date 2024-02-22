@@ -6,6 +6,8 @@ import 'package:monasbatek/features/auth/presentation/login_screen.dart';
 import 'package:monasbatek/features/auth/presentation/signup/sign_up.dart';
 import 'package:monasbatek/features/cart/presentation/widgets/buying_done.dart';
 import 'package:monasbatek/features/cart/presentation/widgets/choose_payment.dart';
+import 'package:monasbatek/features/home/data/models/item_model.dart';
+import 'package:monasbatek/features/home/data/models/item_model.dart';
 import 'package:monasbatek/features/home/presentation/pages/sub_category_items.dart';
 import 'package:monasbatek/features/home/presentation/pages/sub_category_screen.dart';
 import 'package:monasbatek/features/home/presentation/product_details/presentation/pages/product_details.dart';
@@ -92,14 +94,16 @@ class RouteGenerator {
                 ),
             transitionsBuilder: customAnimate);
       case Routes.subCategoryItems:
+        String subCategoryID = settings.arguments as String;
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-                const SubCategoryItems(),
+                  SubCategoryItems(id: subCategoryID,),
             transitionsBuilder: customAnimate);
       case Routes.productDetails:
+        ItemData itemData = settings.arguments as ItemData;
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-                ProductDetails(),
+                ProductDetails(itemData: itemData,),
             transitionsBuilder: customAnimate);
       case Routes.search:
         return PageRouteBuilder(

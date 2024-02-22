@@ -6,10 +6,12 @@ import 'package:monasbatek/core/utils/api_helper.dart';
 import 'package:monasbatek/core/utils/constant_api.dart';
 import 'package:monasbatek/core/utils/methods.dart';
 import 'package:monasbatek/features/home/data/models/categoty_model.dart';
+import 'package:monasbatek/features/home/data/models/item_model.dart';
 
 abstract class HomeBaseRemotelyDataSource {
   Future<List<CategoryModel>> getCategory();
   Future<List<CategoryModel>> getSubCategory(String categoryID);
+  Future<List<ItemData>> getItems(String subCategoryID);
 }
 
 class HomeRemotelyDateSource extends HomeBaseRemotelyDataSource {
@@ -50,6 +52,28 @@ class HomeRemotelyDateSource extends HomeBaseRemotelyDataSource {
     } on DioError catch (e) {
       throw DioHelper.handleDioError(
           dioError: e, endpointName: "getCategoryModel");
+    }
+  }
+
+  @override
+  Future<List<ItemData>> getItems(String subCategoryID) async {
+    Map<String, String> headers = await DioHelper().header();
+    try {
+      final response = await Dio().get(
+        ConstantApi.getItems(subCategoryID),
+        options: Options(
+          headers: headers,
+        ),
+      );
+      log('${subCategoryID}sssssssss');
+      List<ItemData> jsonData = List<ItemData>.from(
+          (response.data['data'] as List).map((e) => ItemData.fromJson(e)));
+      log('${jsonData}sssssssss');
+
+      return jsonData;
+    } on DioError catch (e) {
+      throw DioHelper.handleDioError(
+          dioError: e, endpointName: "getItems");
     }
   }
 }
