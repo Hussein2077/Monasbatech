@@ -6,6 +6,9 @@ class AppColors {
   static const Color backGroundColor = Color(0xFFF2F5F9);
   static const Color pink = Color.fromRGBO(233, 0, 249, 1);
   static const Color gridViewContainerColor = Color(0xFFF0D9F2);
+  static const Color orderProgressStatus = Color(0xfffED8102);
+  static const Color orderCompletedStatus = Color(0xFF0F9918);
+  static const Color orderCanceledStatus = Color(0xFFFF4747);
   //####################################
   static const Color black = Color(0xFF000000);
   static const Color white = Colors.white;

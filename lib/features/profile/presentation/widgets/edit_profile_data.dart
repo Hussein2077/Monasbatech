@@ -1,20 +1,20 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:monasbatek/core/resource_manager/asset_path.dart';
+import 'package:monasbatek/core/resource_manager/colors.dart';
+import 'package:monasbatek/core/widgets/cutom_text.dart';
 
-import '../../../../core/resource_manager/asset_path.dart';
-import '../../../../core/resource_manager/colors.dart';
 import '../../../../core/resource_manager/string_manager.dart';
 import '../../../../core/utils/app_size.dart';
-import '../../../../core/widgets/cutom_text.dart';
 
-class ProfileButtonWidget extends StatelessWidget {
+class EditProfileData extends StatelessWidget {
   final String title;
-  final String prefixIconAssetPath;
-  const ProfileButtonWidget({
+  final String prefixIcon;
+  EditProfileData({
     super.key,
     required this.title,
-    required this.prefixIconAssetPath,
+    required this.prefixIcon,
   });
 
   @override
@@ -22,7 +22,8 @@ class ProfileButtonWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(AppSize.defaultSize! * 2.5),
+        border: Border.all(color: AppColors.primaryColor),
+        borderRadius: BorderRadius.circular(AppSize.defaultSize! * 1.5),
       ),
       width: AppSize.screenWidth,
       child: Padding(
@@ -35,32 +36,20 @@ class ProfileButtonWidget extends StatelessWidget {
                 children: [
                   Container(
                     child: SvgPicture.asset(
-                      prefixIconAssetPath,
-                      color: Colors.black,
+                      prefixIcon,
+                      color: AppColors.primaryColor,
                     ),
                   ),
                   SizedBox(
-                    width: AppSize.screenWidth! * 0.015,
-                  ),
-                  Container(
-                    height: AppSize.screenHeight! * 0.03,
-                    width: AppSize.screenWidth! * 0.005,
-                    color: AppColors.greyColor.withOpacity(0.5),
-                  ),
-                  SizedBox(
-                    width: AppSize.screenWidth! * 0.015,
+                    width: AppSize.screenWidth! * 0.025,
                   ),
                   CustomText(
                     text: title,
                     fontSize: AppSize.defaultSize! * 1.9,
+                    color: AppColors.primaryColor,
+                    fontWeight: FontWeight.w500,
                   ),
                 ],
-              ),
-              Container(
-                child: SvgPicture.asset(
-                  AssetPath.arrowRight,
-                  color: Colors.black,
-                ),
               ),
             ],
           ),

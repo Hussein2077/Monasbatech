@@ -32,6 +32,7 @@ class StringManager {
       "Please enter the code which sent to";
   static const String enterYourMobile = "Enter Your Mobile No.";
   static const String enterYourEmail = "Enter Your Email";
+  static const String emailAddress = "mohamed@gmail.com";
   static const String signIn = "Sign in";
   static const String pleaseFill = "Please fill your data";
   static const String sendCode = "Send Code";
@@ -98,4 +99,20 @@ class StringManager {
   static const String payment = 'payment';
   static const String pay = 'Pay';
   static const String editPersonalProfile = 'Edit Personal Profile';
+  static const String myOrders = 'My Orders';
+  static const String myReservations = 'My reservations';
+  static const String myAddresses = 'My addresses';
+  static const String favourite = 'Favourite';
+  static const String paymentMethod = 'Payment method';
+  static const String help = 'Help';
+  static const String inviteFriends = 'Invite friends';
+  static const String applicationPolicy = 'Application policy';
+  static const String settings = "Settings";
+  static const String changeProfilePhoto = "Change Profile Photo";
+  static const String edit = "Edit";
+  static const String progress = "Progress";
+  static const String complete = "Completed";
+  static const String canceled = "Canceled";
+  static const String underReceipt = "Under receipt";
+  static const String orderDetails = "Order Details";
 }

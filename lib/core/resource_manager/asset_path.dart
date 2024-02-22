@@ -36,4 +36,16 @@ class AssetPath {
   static const star = "$pathImage/Star.svg";
   static const plus = "$pathImage/Plus.png";
   static const arrowRight = "$pathImage/arrow_right.svg";
+  static const myOrders = "$pathImage/my_orders.svg";
+  static const myReservations = "$pathImage/myReservations.svg";
+  static const myAddresses = "$pathImage/myAddresses.svg";
+  static const paymentMethod = "$pathImage/paymentMethod.svg";
+  static const help = "$pathImage/chat.svg";
+  static const inviteFriends = "$pathImage/Upload.svg";
+  static const applicationPolicy = "$pathImage/Shield Done.svg";
+  static const settings = "$pathImage/settings.svg";
+  static const myPhoto = "$pathImage/myPhoto.jpg";
+  static const camera = "$pathImage/Camera.svg";
+  // static const arrowRight = "$pathImage/Arrow - Right 2.svg";
+  static const myOrderImg = "$pathImage/myOrderImg.png";
 }

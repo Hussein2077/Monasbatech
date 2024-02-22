@@ -5,6 +5,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monasbatek/core/resource_manager/colors.dart';
 import 'package:monasbatek/core/utils/app_size.dart';
 import 'package:monasbatek/core/widgets/cutom_text.dart';
+import 'package:monasbatek/features/profile/presentation/pages/edit_profile.dart';
+import 'package:monasbatek/features/profile/presentation/pages/my_orders.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'dart:math' as math;
 
 import '../../../../core/resource_manager/asset_path.dart';
@@ -92,20 +95,90 @@ class ProfileScreen extends StatelessWidget {
                       horizontal: AppSize.defaultSize! * 0.08),
                   child: Column(
                     children: [
-                      ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: 7,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: EdgeInsets.only(
-                                  bottom: AppSize.defaultSize! * 0.8),
-                              child: ProfileButtonWidget()
-                                  .animate()
-                                  .fadeIn() // uses `Animate.defaultDuration`
-                                  .scale() // inherits duration from fadeIn
-                                  .move(delay: 300.ms, duration: 800.ms),
-                            );
-                          }),
+                      InkWell(
+                        onTap: () {
+                          PersistentNavBarNavigator.pushNewScreen(
+                            context,
+                            screen: EditProfileScreen(),
+                            withNavBar: false,
+                            // OPTIONAL VALUE. True by default.
+                            pageTransitionAnimation:
+                                PageTransitionAnimation.fade,
+                          );
+                        },
+                        child: ProfileButtonWidget(
+                            title: StringManager.editPersonalProfile.tr(),
+                            prefixIconAssetPath: AssetPath.profileNavigation),
+                      ),
+                      SizedBox(
+                        height: AppSize.screenHeight! * 0.02,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          PersistentNavBarNavigator.pushNewScreen(
+                            context,
+                            screen: MyOrders(),
+                            withNavBar: false,
+                            // OPTIONAL VALUE. True by default.
+                            pageTransitionAnimation:
+                                PageTransitionAnimation.fade,
+                          );
+                        },
+                        child: ProfileButtonWidget(
+                            title: StringManager.myOrders.tr(),
+                            prefixIconAssetPath: AssetPath.myOrders),
+                      ),
+                      SizedBox(
+                        height: AppSize.screenHeight! * 0.02,
+                      ),
+                      ProfileButtonWidget(
+                          title: StringManager.myReservations.tr(),
+                          prefixIconAssetPath: AssetPath.myReservations),
+                      SizedBox(
+                        height: AppSize.screenHeight! * 0.02,
+                      ),
+                      ProfileButtonWidget(
+                          title: StringManager.myAddresses.tr(),
+                          prefixIconAssetPath: AssetPath.myAddresses),
+                      SizedBox(
+                        height: AppSize.screenHeight! * 0.02,
+                      ),
+                      ProfileButtonWidget(
+                          title: StringManager.favourite.tr(),
+                          prefixIconAssetPath: AssetPath.heart),
+                      SizedBox(
+                        height: AppSize.screenHeight! * 0.02,
+                      ),
+                      ProfileButtonWidget(
+                          title: StringManager.paymentMethod.tr(),
+                          prefixIconAssetPath: AssetPath.paymentMethod),
+                      SizedBox(
+                        height: AppSize.screenHeight! * 0.02,
+                      ),
+                      ProfileButtonWidget(
+                          title: StringManager.help.tr(),
+                          prefixIconAssetPath: AssetPath.help),
+                      SizedBox(
+                        height: AppSize.screenHeight! * 0.02,
+                      ),
+                      ProfileButtonWidget(
+                          title: StringManager.inviteFriends.tr(),
+                          prefixIconAssetPath: AssetPath.inviteFriends),
+                      SizedBox(
+                        height: AppSize.screenHeight! * 0.02,
+                      ),
+                      ProfileButtonWidget(
+                          title: StringManager.applicationPolicy.tr(),
+                          prefixIconAssetPath: AssetPath.applicationPolicy),
+                      SizedBox(
+                        height: AppSize.screenHeight! * 0.02,
+                      ),
+                      ProfileButtonWidget(
+                          title: StringManager.settings.tr(),
+                          prefixIconAssetPath: AssetPath.settings),
+                      SizedBox(
+                        height: AppSize.screenHeight! * 0.06,
+                      ),
                     ],
                   ),
                 ),

@@ -10,6 +10,7 @@ import 'package:monasbatek/features/home/presentation/pages/sub_category_items.d
 import 'package:monasbatek/features/home/presentation/pages/sub_category_screen.dart';
 import 'package:monasbatek/features/home/presentation/product_details/presentation/pages/product_details.dart';
 import 'package:monasbatek/features/main_screen.dart';
+import 'package:monasbatek/features/profile/presentation/pages/edit_profile.dart';
 import '../../features/home/presentation/pages/home_screen.dart';
 
 import '../../features/search/presentation/pages/search_screen.dart';
@@ -31,6 +32,7 @@ class Routes {
   static const String search = "/search";
   static const String buyingDone = "/BuyingDone";
   static const String choosePayment = "/choosePayment";
+  static const String editProfile = "/editProfile";
 }
 
 class RouteGenerator {
@@ -113,6 +115,11 @@ class RouteGenerator {
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
                 const ChoosePayment(),
+            transitionsBuilder: customAnimate);
+      case Routes.editProfile:
+        return PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                EditProfileScreen(),
             transitionsBuilder: customAnimate);
 
       // case Routes.profile:
