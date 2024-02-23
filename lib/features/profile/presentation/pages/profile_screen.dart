@@ -7,6 +7,7 @@ import 'package:monasbatek/core/utils/app_size.dart';
 import 'package:monasbatek/core/widgets/cutom_text.dart';
 import 'package:monasbatek/features/profile/presentation/pages/edit_profile.dart';
 import 'package:monasbatek/features/profile/presentation/pages/my_orders.dart';
+import 'package:monasbatek/features/profile/presentation/pages/my_reservations.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'dart:math' as math;
 
@@ -131,9 +132,21 @@ class ProfileScreen extends StatelessWidget {
                       SizedBox(
                         height: AppSize.screenHeight! * 0.02,
                       ),
-                      ProfileButtonWidget(
-                          title: StringManager.myReservations.tr(),
-                          prefixIconAssetPath: AssetPath.myReservations),
+                      InkWell(
+                        onTap: () {
+                          PersistentNavBarNavigator.pushNewScreen(
+                            context,
+                            screen: MyReservations(),
+                            withNavBar: false,
+                            // OPTIONAL VALUE. True by default.
+                            pageTransitionAnimation:
+                                PageTransitionAnimation.fade,
+                          );
+                        },
+                        child: ProfileButtonWidget(
+                            title: StringManager.myReservations.tr(),
+                            prefixIconAssetPath: AssetPath.myReservations),
+                      ),
                       SizedBox(
                         height: AppSize.screenHeight! * 0.02,
                       ),

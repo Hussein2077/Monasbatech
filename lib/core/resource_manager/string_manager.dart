@@ -80,7 +80,7 @@ class StringManager {
   static const String buy = 'Buy';
   static const String later = 'Later';
   static const String suggestion = 'Suggestion products';
-  static const String total = 'total';
+  static const String total = 'Total';
   static const String delivery = 'delivery';
   static const String totalPrice = 'total price';
   static const String searchTtitle = 'Search';
@@ -115,4 +115,17 @@ class StringManager {
   static const String canceled = "Canceled";
   static const String underReceipt = "Under receipt";
   static const String orderDetails = "Order Details";
+  static const String homeAddress = "10 Omar bin Abdul Aziz Street";
+  static const String jeddahName = "- Jeddah";
+  static const String phoneNumber = "+9502151620";
+  static const String masterCardData = "***mohamed@gmail.com";
+  static const String orderAgain = "Order Again";
+  static const String partialTotal = "Partial total";
+  static const String deliveryCost = "Delivery cost";
+  static const String trendCafe = "Trend Cafe - Trend";
+  static const String reservationDate = 'February 3, 00:10 PM';
+  static const String progressReservation = "null";
+  static const String againReservation = "Reservation Again";
+  static const String reservationDetails = "Reservation Details";
+  static const String inviteQrCode = 'Share QR-Code to invitees';
 }
