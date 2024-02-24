@@ -39,8 +39,8 @@ class CustomItemsDecoration extends StatelessWidget {
             children: [
               CachedNetworkCustom(
                 url: imagePath,
-                width: AppSize.defaultSize!*13.8,
-                height: AppSize.defaultSize!*14.8,
+                width: AppSize.defaultSize! * 13.8,
+                height: AppSize.defaultSize! * 14.8,
               ),
               Positioned(
                 top: 5,
@@ -106,10 +106,9 @@ class CustomItemsDecoration extends StatelessWidget {
                   children: [
                     CachedNetworkCustom(
                       url: companyImg,
-                      width: AppSize.defaultSize!*2,
-                      height: AppSize.defaultSize!*2,
+                      width: AppSize.defaultSize! * 2,
+                      height: AppSize.defaultSize! * 2,
                     ),
-
                     SizedBox(
                       width: AppSize.screenWidth! * 0.01,
                     ),

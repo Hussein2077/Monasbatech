@@ -53,5 +53,12 @@ class AssetPath {
   static const myOrderImg = "$pathImage/myOrderImg.png";
   static const reservationCompanyImg = "$pathImage/reservationCompanyImg.png";
   static const share = "$pathImage/share.svg";
+  static const time = "$pathImage/time.svg";
+  static const edit = "$pathImage/Edit.svg";
+  static const arrowDown = "$pathImage/ArrowDown.svg";
+  static const arrowRightBack = "$pathImage/Arrow - Left.svg";
+  static const addAddressIcon = "$pathImage/Plus.svg";
   static const qrCode = "$pathImage/qrCode.png";
+  static const reservationResturant = "$pathImage/reservationResturant.png";
+  static const testimonialsImage = "$pathImage/testimonials.png";
 }

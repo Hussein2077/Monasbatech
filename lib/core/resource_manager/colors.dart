@@ -9,6 +9,8 @@ class AppColors {
   static const Color orderProgressStatus = Color(0xfffED8102);
   static const Color orderCompletedStatus = Color(0xFF0F9918);
   static const Color orderCanceledStatus = Color(0xFFFF4747);
+  static const Color ratingColor = Color(0xFFEF9F27);
+  static const Color progressReservationColor = Color(0xFF5A77DF);
   //####################################
   static const Color black = Color(0xFF000000);
   static const Color white = Colors.white;

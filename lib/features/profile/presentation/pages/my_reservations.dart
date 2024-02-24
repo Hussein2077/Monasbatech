@@ -127,7 +127,10 @@ class _MyReservationsState extends State<MyReservations> {
                           onTap: () {
                             PersistentNavBarNavigator.pushNewScreen(
                               context,
-                              screen: ReservationStatusDetails(),
+                              screen: ReservationStatusDetails(
+                                reservationStatusTitle:
+                                    StringManager.progressReservationTitle.tr(),
+                              ),
                               withNavBar: false,
                               // OPTIONAL VALUE. True by default.
                               pageTransitionAnimation:
@@ -151,14 +154,30 @@ class _MyReservationsState extends State<MyReservations> {
                   ListView.builder(
                       itemCount: 3,
                       itemBuilder: (context, index) {
-                        return ReservationStatusWidget(
-                          reservationAddress: StringManager.jeddahName.tr(),
-                          reservationCompanyImg:
-                              AssetPath.reservationCompanyImg,
-                          reservationCompanyTitle: StringManager.trendCafe.tr(),
-                          reservationDate: StringManager.reservationDate.tr(),
-                          reservationStatus:
-                              StringManager.againReservation.tr(),
+                        return InkWell(
+                          onTap: () {
+                            PersistentNavBarNavigator.pushNewScreen(
+                              context,
+                              screen: ReservationStatusDetails(
+                                reservationStatusTitle:
+                                    StringManager.completeReservation.tr(),
+                              ),
+                              withNavBar: false,
+                              // OPTIONAL VALUE. True by default.
+                              pageTransitionAnimation:
+                                  PageTransitionAnimation.fade,
+                            );
+                          },
+                          child: ReservationStatusWidget(
+                            reservationAddress: StringManager.jeddahName.tr(),
+                            reservationCompanyImg:
+                                AssetPath.reservationCompanyImg,
+                            reservationCompanyTitle:
+                                StringManager.trendCafe.tr(),
+                            reservationDate: StringManager.reservationDate.tr(),
+                            reservationStatus:
+                                StringManager.againReservation.tr(),
+                          ),
                         );
                       }),
                   //these for cancel
@@ -166,14 +185,30 @@ class _MyReservationsState extends State<MyReservations> {
                   ListView.builder(
                       itemCount: 3,
                       itemBuilder: (context, index) {
-                        return ReservationStatusWidget(
-                          reservationAddress: StringManager.jeddahName.tr(),
-                          reservationCompanyImg:
-                              AssetPath.reservationCompanyImg,
-                          reservationCompanyTitle: StringManager.trendCafe.tr(),
-                          reservationDate: StringManager.reservationDate.tr(),
-                          reservationStatus:
-                              StringManager.againReservation.tr(),
+                        return InkWell(
+                          onTap: () {
+                            PersistentNavBarNavigator.pushNewScreen(
+                              context,
+                              screen: ReservationStatusDetails(
+                                reservationStatusTitle:
+                                    StringManager.reservationCanceled.tr(),
+                              ),
+                              withNavBar: false,
+                              // OPTIONAL VALUE. True by default.
+                              pageTransitionAnimation:
+                                  PageTransitionAnimation.fade,
+                            );
+                          },
+                          child: ReservationStatusWidget(
+                            reservationAddress: StringManager.jeddahName.tr(),
+                            reservationCompanyImg:
+                                AssetPath.reservationCompanyImg,
+                            reservationCompanyTitle:
+                                StringManager.trendCafe.tr(),
+                            reservationDate: StringManager.reservationDate.tr(),
+                            reservationStatus:
+                                StringManager.againReservation.tr(),
+                          ),
                         );
                       }),
                 ],

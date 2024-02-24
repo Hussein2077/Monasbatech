@@ -15,7 +15,7 @@ import '../../../widgets/bottom_sheet_content.dart';
 
 class ProductDetails extends StatefulWidget {
   const ProductDetails({super.key, required this.itemData});
-final ItemData itemData;
+  final ItemData itemData;
   @override
   State<ProductDetails> createState() => _ProductDetailsState();
 }
@@ -89,9 +89,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                 child: Column(
                   children: [
                     //------------ add product list of images ----------
-                    // Center(
-                    //   child: Image.asset(AssetPath.productDetailsImage),
-                    // ),
+                    Center(
+                      child: Image.asset(AssetPath.productDetailsImage),
+                    ),
                     SizedBox(
                       height: AppSize.defaultSize! * 1.2,
                     ),
@@ -101,7 +101,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       children: [
                         Flexible(
                           child: Text(
-                           widget.itemData.name??"",
+                            widget.itemData.name ?? "",
                             textAlign: TextAlign.right,
                             style: const TextStyle(
                               color: Color(0xFF121212),
@@ -263,11 +263,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                                     value!; // Update _selectedValue when option 1 is selected
                               });
                             },
-                            title:CustomText(
-                              text:StringManager.small.tr() ,
-                              fontSize: AppSize.defaultSize!*1.4,
+                            title: CustomText(
+                              text: StringManager.small.tr(),
+                              fontSize: AppSize.defaultSize! * 1.4,
                               fontWeight: FontWeight.w500,
-                            ) ,
+                            ),
                           ),
                         ),
                         Expanded(
@@ -281,12 +281,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                                     value!; // Update _selectedValue when option 1 is selected
                               });
                             },
-
                             title: CustomText(
-                              text:StringManager.medium.tr() ,
-                              fontSize: AppSize.defaultSize!*1.4,
+                              text: StringManager.medium.tr(),
+                              fontSize: AppSize.defaultSize! * 1.4,
                               fontWeight: FontWeight.w500,
-                            ) ,
+                            ),
                           ),
                         ),
                         Expanded(
@@ -301,10 +300,10 @@ class _ProductDetailsState extends State<ProductDetails> {
                               });
                             },
                             title: CustomText(
-                              text:StringManager.large.tr() ,
-                              fontSize: AppSize.defaultSize!*1.4,
+                              text: StringManager.large.tr(),
+                              fontSize: AppSize.defaultSize! * 1.4,
                               fontWeight: FontWeight.w500,
-                            ) ,
+                            ),
                           ),
                         ),
                       ],

@@ -63,161 +63,166 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Scaffold(
         backgroundColor: AppColors.backGroundColor,
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: AppSize.defaultSize! * 8,
-              ),
-              Image.asset(AssetPath.logo),
-              SizedBox(
-                height: AppSize.defaultSize! * 2.6,
-              ),
-              Text(
-                StringManager.loginToYourAccount.tr(),
-                maxLines: 2,
-                style: TextStyle(
-                    color: AppColors.black,
-                    fontSize: AppSize.defaultSize! * 2,
-                    fontWeight: FontWeight.w700),
-              ),
-              SizedBox(
-                height: AppSize.defaultSize! * 2.6,
-              ),
-              CustomTextField(
-                prefixIcon: SvgPicture.asset(
-                  AssetPath.emailIcon,
+          child: Padding(
+            padding: EdgeInsets.only(
+                left: AppSize.screenWidth! * 0.02,
+                right: AppSize.screenWidth! * 0.02),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: AppSize.defaultSize! * 8,
                 ),
-                hintText: StringManager.email.tr(),
-                controller: emailController,
-              ),
-              SizedBox(
-                height: AppSize.defaultSize! * 2,
-              ),
-              CustomTextField(
-                prefixIcon: SvgPicture.asset(
-                  AssetPath.lock,
+                Image.asset(AssetPath.logo),
+                SizedBox(
+                  height: AppSize.defaultSize! * 2.6,
                 ),
-                hintText: StringManager.password.tr(),
-                obscureText: isVisible,
-                controller: passwordController,
-                suffixIcon: InkWell(
-                  onTap: () {
-                    setState(() {
-                      isVisible = !isVisible;
-                    });
-                  },
-                  child: Icon(
-                    isVisible ? Icons.visibility_off : Icons.visibility,
-                    color: Colors.grey,
+                Text(
+                  StringManager.loginToYourAccount.tr(),
+                  maxLines: 2,
+                  style: TextStyle(
+                      color: AppColors.black,
+                      fontSize: AppSize.defaultSize! * 2,
+                      fontWeight: FontWeight.w700),
+                ),
+                SizedBox(
+                  height: AppSize.defaultSize! * 2.6,
+                ),
+                CustomTextField(
+                  prefixIcon: SvgPicture.asset(
+                    AssetPath.emailIcon,
                   ),
+                  hintText: StringManager.email.tr(),
+                  controller: emailController,
                 ),
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, Routes.forgetPassword);
-                  },
-                  child: Text(
-                    StringManager.forgetYourPassword.tr(),
-                    style: TextStyle(
-                      color: AppColors.pink,
-                      fontSize: AppSize.defaultSize! * 1.2,
+                SizedBox(
+                  height: AppSize.defaultSize! * 2,
+                ),
+                CustomTextField(
+                  prefixIcon: SvgPicture.asset(
+                    AssetPath.lock,
+                  ),
+                  hintText: StringManager.password.tr(),
+                  obscureText: isVisible,
+                  controller: passwordController,
+                  suffixIcon: InkWell(
+                    onTap: () {
+                      setState(() {
+                        isVisible = !isVisible;
+                      });
+                    },
+                    child: Icon(
+                      isVisible ? Icons.visibility_off : Icons.visibility,
+                      color: Colors.grey,
                     ),
                   ),
                 ),
-              ),
-              MainButton(
-                text: StringManager.login.tr(),
-                onTap: () {
-                  if (validation()) {
-                    BlocProvider.of<LoginWithEmailAndPasswordBloc>(context)
-                        .add(LoginWithEmailAndPasswordEvent(
-                      email: emailController.text,
-                      password: passwordController.text,
-                    ));
-                  } else {
-                    errorSnackBar(context, StringManager.pleaseFill.tr());
-                  }
-                },
-              ),
-              SizedBox(
-                height: AppSize.defaultSize! * 4,
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    left: AppSize.defaultSize! * 2,
-                    right: AppSize.defaultSize! * 2),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      height: 1,
-                      color: AppColors.greyColor,
-                      width: AppSize.defaultSize! * 17,
-                    ),
-                    Text(
-                      StringManager.or.tr(),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, Routes.forgetPassword);
+                    },
+                    child: Text(
+                      StringManager.forgetYourPassword.tr(),
                       style: TextStyle(
-                          color: AppColors.blackColor,
-                          fontSize: AppSize.defaultSize! * 1.2,
-                          fontWeight: FontWeight.w700),
-                    ),
-                    Container(
-                      height: 1,
-                      color: AppColors.greyColor,
-                      width: AppSize.defaultSize! * 17,
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: AppSize.defaultSize! * 4,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(AssetPath.google),
-                  SizedBox(
-                    width: AppSize.defaultSize! * 2,
-                  ),
-                  Image.asset(AssetPath.apple),
-                ],
-              ),
-              SizedBox(
-                height: AppSize.screenHeight! * .1,
-              ),
-              SizedBox(
-                height: AppSize.defaultSize! * 4.8,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      StringManager.doNotHaveAccount.tr(),
-                      style: TextStyle(
-                          color: AppColors.greyColor,
-                          fontSize: AppSize.defaultSize! * 1.4,
-                          fontWeight: FontWeight.w700),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          Routes.signUp,
-                        );
-                      },
-                      child: Text(
-                        StringManager.signUp.tr(),
-                        style: TextStyle(
-                            color: AppColors.primaryColor,
-                            fontSize: AppSize.defaultSize! * 1.5,
-                            fontWeight: FontWeight.w700),
+                        color: AppColors.pink,
+                        fontSize: AppSize.defaultSize! * 1.2,
                       ),
                     ),
+                  ),
+                ),
+                MainButton(
+                  text: StringManager.login.tr(),
+                  onTap: () {
+                    if (validation()) {
+                      BlocProvider.of<LoginWithEmailAndPasswordBloc>(context)
+                          .add(LoginWithEmailAndPasswordEvent(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      ));
+                    } else {
+                      errorSnackBar(context, StringManager.pleaseFill.tr());
+                    }
+                  },
+                ),
+                SizedBox(
+                  height: AppSize.defaultSize! * 4,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: AppSize.defaultSize! * 2,
+                      right: AppSize.defaultSize! * 2),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        height: 1,
+                        color: AppColors.greyColor,
+                        width: AppSize.defaultSize! * 17,
+                      ),
+                      Text(
+                        StringManager.or.tr(),
+                        style: TextStyle(
+                            color: AppColors.blackColor,
+                            fontSize: AppSize.defaultSize! * 1.2,
+                            fontWeight: FontWeight.w700),
+                      ),
+                      Container(
+                        height: 1,
+                        color: AppColors.greyColor,
+                        width: AppSize.defaultSize! * 17,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: AppSize.defaultSize! * 4,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(AssetPath.google),
+                    SizedBox(
+                      width: AppSize.defaultSize! * 2,
+                    ),
+                    Image.asset(AssetPath.apple),
                   ],
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: AppSize.screenHeight! * .1,
+                ),
+                SizedBox(
+                  height: AppSize.defaultSize! * 4.8,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        StringManager.doNotHaveAccount.tr(),
+                        style: TextStyle(
+                            color: AppColors.greyColor,
+                            fontSize: AppSize.defaultSize! * 1.4,
+                            fontWeight: FontWeight.w700),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            Routes.signUp,
+                          );
+                        },
+                        child: Text(
+                          StringManager.signUp.tr(),
+                          style: TextStyle(
+                              color: AppColors.primaryColor,
+                              fontSize: AppSize.defaultSize! * 1.5,
+                              fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
