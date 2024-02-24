@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:monasbatek/core/resource_manager/asset_path.dart';
+import 'package:monasbatek/core/resource_manager/routes.dart';
 import 'package:monasbatek/core/widgets/main_button.dart';
 
 import '../../../../core/resource_manager/colors.dart';
@@ -20,7 +21,7 @@ class BottomSheetContent extends StatelessWidget {
           textAlign: TextAlign.right,
           style: TextStyle(
             color: Color(0xFF109549),
-            fontSize: 16,
+            fontSize: AppSize.defaultSize! * 1.6,
             fontWeight: FontWeight.w700,
             height: 0.09,
           ),
@@ -28,7 +29,7 @@ class BottomSheetContent extends StatelessWidget {
         SizedBox(
           height: AppSize.screenHeight! * 0.02,
         ),
-        Container(
+        SizedBox(
           width: AppSize.screenWidth! * 0.5,
           child: Divider(),
         ),
@@ -125,11 +126,17 @@ class BottomSheetContent extends StatelessWidget {
             children: [
               MainButton(
                 text: StringManager.buy.tr(),
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.choosePayment);
+                },
                 width: AppSize.screenWidth! * 0.4,
               ),
               MainButton(
                 text: StringManager.later.tr(),
                 color: AppColors.white,
+                onTap: () {
+                  Navigator.pop(context);
+                },
                 textColor: AppColors.pink,
                 width: AppSize.screenWidth! * 0.4,
               ),

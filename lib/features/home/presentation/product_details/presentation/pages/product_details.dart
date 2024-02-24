@@ -23,6 +23,13 @@ final ItemData itemData;
 class _ProductDetailsState extends State<ProductDetails> {
   int _selectedValue = 1;
   int itemsCount = 1;
+  double price = 1;
+  @override
+  void initState() {
+    price=widget.itemData.price?.toDouble()??0;
+
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -107,7 +114,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                         ),
                         //------------ add favourite Icon --------
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+
+                          },
                           child: CircleAvatar(
                             backgroundColor: Colors.white,
                             child: SvgPicture.asset(AssetPath.heart),
@@ -123,9 +132,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       children: [
                         Row(
                           children: [
-                            Container(
-                              child: Image.asset(AssetPath.profileCompanyImg),
-                            ),
+                            Image.asset(AssetPath.profileCompanyImg),
                             SizedBox(
                               width: AppSize.defaultSize! * 0.5,
                             ),
@@ -133,7 +140,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  StringManager.companyName.tr(),
+                                  widget.itemData.provider?.name??"",
                                   textAlign: TextAlign.right,
                                   style: TextStyle(
                                     color: AppColors.black,
@@ -147,10 +154,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                 ),
                                 Row(
                                   children: [
-                                    Container(
-                                      child:
-                                          SvgPicture.asset(AssetPath.location),
-                                    ),
+                                    SvgPicture.asset(AssetPath.location),
                                     Text(
                                       StringManager.destination.tr(),
                                       textAlign: TextAlign.right,
@@ -201,21 +205,28 @@ class _ProductDetailsState extends State<ProductDetails> {
                     SizedBox(
                       height: AppSize.defaultSize! * 1.5,
                     ),
-                    Row(
-                      children: [
-                        Flexible(
-                          child: Text(
-                            StringManager.description.tr(),
-                            style: TextStyle(
-                              color: AppColors.greyColor,
-                              fontSize: AppSize.defaultSize! * 1.5,
-                              fontWeight: FontWeight.w400,
+                    SizedBox(
+                      height: AppSize.screenHeight!*.15,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Flexible(
+                            child: Text(
+                              widget.itemData.description??"",
+                              style: TextStyle(
+                                color: AppColors.greyColor,
+                                fontSize: AppSize.defaultSize! * 1.5,
+                                fontWeight: FontWeight.w400,
+
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              maxLines: 10,
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                    Divider(),
+                    const Divider(),
                     SizedBox(
                       height: AppSize.defaultSize! * 1.5,
                     ),
@@ -317,7 +328,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       ],
                     ),
                     SizedBox(
-                      height: AppSize.defaultSize! * 1.5,
+                      height: AppSize.defaultSize! * 3,
                     ),
                     //--------------- add Product special instructions container -------
                     CustomTextField(
@@ -333,119 +344,126 @@ class _ProductDetailsState extends State<ProductDetails> {
                   ],
                 ),
               ),
-              Positioned(
-                bottom: 0,
-                child: Container(
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(17),
-                      topRight: Radius.circular(17),
-                    ),
+              SizedBox(
+                height: AppSize.defaultSize! * 4,
+              ),
+              Container(
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(17),
+                    topRight: Radius.circular(17),
                   ),
-                  //  height: AppSize.screenHeight! * 0.1,
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          top: 25, left: 20, right: 20, bottom: 10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                "Total : 1305 RS",
-                                style: TextStyle(
-                                  color: AppColors.pink,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700,
-                                  height: 0.09,
+                ),
+                //  height: AppSize.screenHeight! * 0.1,
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        top: 25, left: 20, right: 20, bottom: 10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                              Text(
+                             price.toString(),
+                              style:   TextStyle(
+                                color: AppColors.pink,
+                                fontSize: AppSize.defaultSize!*1.6,
+                                fontWeight: FontWeight.w700,
+                                height: 0.09,
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      price=price+(widget.itemData.price??0);
+                                      itemsCount++;
+                                    });
+                                  },
+                                  child: Container(
+                                    width: AppSize.defaultSize!*2.8,
+                                    height: AppSize.defaultSize!*2.8,
+                                    decoration: ShapeDecoration(
+                                      color: AppColors.pink,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(8),
+                                      ),
+                                    ),
+                                    child: Icon(
+                                      Icons.add,
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              Row(
-                                children: [
-                                  InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        itemsCount++;
-                                      });
-                                    },
-                                    child: Container(
-                                      width: 28,
-                                      height: 28,
-                                      decoration: ShapeDecoration(
-                                        color: AppColors.pink,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                      ),
-                                      child: Icon(
-                                        Icons.add,
-                                        color: Colors.white,
-                                      ),
-                                    ),
+                                SizedBox(
+                                  width: AppSize.screenWidth! * 0.02,
+                                ),
+                                Text(
+                                  "$itemsCount",
+                                  style: TextStyle(
+                                    color: AppColors.primaryColor,
+                                    fontSize: 13.50,
+                                    fontFamily: 'Almarai',
+                                    fontWeight: FontWeight.w700,
+                                    height: 0,
                                   ),
-                                  SizedBox(
-                                    width: AppSize.screenWidth! * 0.02,
-                                  ),
-                                  Text(
-                                    "$itemsCount",
-                                    style: TextStyle(
-                                      color: AppColors.primaryColor,
-                                      fontSize: 13.50,
-                                      fontFamily: 'Almarai',
-                                      fontWeight: FontWeight.w700,
-                                      height: 0,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: AppSize.screenWidth! * 0.02,
-                                  ),
-                                  //----- decrease items counts ----------
-                                  InkWell(
-                                    onTap: () {
-                                      setState(() {
+                                ),
+                                SizedBox(
+                                  width: AppSize.screenWidth! * 0.02,
+                                ),
+                                //----- decrease items counts ----------
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      if(price-(widget.itemData.price!)!=0) {
+                                        price=price-(widget.itemData.price??0);
+                                      }
+                                      if(itemsCount!=1) {
                                         itemsCount--;
-                                      });
-                                    },
-                                    child: Container(
-                                      width: 28,
-                                      height: 28,
-                                      decoration: ShapeDecoration(
-                                        color: AppColors.greyColor
-                                            .withOpacity(0.5),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                      ),
-                                      child: Icon(
-                                        Icons.remove,
-                                        color: Colors.white,
+                                      }
+
+                                    });
+                                  },
+                                  child: Container(
+                                    width: AppSize.defaultSize!*2.8,
+                                    height: AppSize.defaultSize!*2.8,
+                                    decoration: ShapeDecoration(
+                                      color: AppColors.greyColor
+                                          .withOpacity(0.5),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(8),
                                       ),
                                     ),
+                                    child: const Icon(
+                                      Icons.remove,
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          //--------- add button add to cart ----
-                          SizedBox(
-                            height: AppSize.screenHeight! * 0.02,
-                          ),
-                          MainButton(
-                            text: StringManager.addToCard.tr(),
-                            onTap: () {
-                              showCustomBottomSheet(
-                                context,
-                                BottomSheetContent(),
-                              );
-                            },
-                          )
-                        ],
-                      ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        //--------- add button add to cart ----
+                        SizedBox(
+                          height: AppSize.screenHeight! * 0.02,
+                        ),
+                        MainButton(
+                          text: StringManager.addToCard.tr(),
+                          onTap: () {
+                            showCustomBottomSheet(
+                              context,
+                              BottomSheetContent(),
+                            );
+                          },
+                        )
+                      ],
                     ),
                   ),
                 ),

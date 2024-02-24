@@ -11,3 +11,11 @@ class GetSubCategoriesEvent extends BaseSubCategoriesEvent {
 final  String categoryID;
   const GetSubCategoriesEvent({required this.categoryID});
 }
+class AddToCartEvent extends BaseSubCategoriesEvent {
+  final String itemId;
+  final String priceId;
+  final String addressId;
+
+  AddToCartEvent(
+      {required this.itemId, required this.priceId, required this.addressId});
+}

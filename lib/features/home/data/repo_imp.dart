@@ -6,6 +6,7 @@ import 'package:monasbatek/features/home/data/home_remote_data_source.dart';
 import 'package:monasbatek/features/home/data/models/categoty_model.dart';
 import 'package:monasbatek/features/home/data/models/item_model.dart';
 import 'package:monasbatek/features/home/domain/repo/base_repo.dart';
+import 'package:monasbatek/features/home/domain/use_case/add_cart_uc.dart';
 
 class HomeRepositoryImp extends HomeBaseRepository {
   final HomeBaseRemotelyDataSource homeBaseRemotelyDataSource;
@@ -31,11 +32,22 @@ class HomeRepositoryImp extends HomeBaseRepository {
     } on Exception catch (e) {
       return right(DioHelper.buildFailure(e));
     }
-  } @override
+  }
+  @override
   Future<Either< List<ItemData>, Failure>> getItems(String subCategoryID) async {
     try {
       final result =
           await homeBaseRemotelyDataSource.getItems(subCategoryID);
+      return Left(result);
+    } on Exception catch (e) {
+      return right(DioHelper.buildFailure(e));
+    }
+  }
+  @override
+  Future<Either<  Map<String, dynamic>, Failure>> addToCart(AddCartModel addCartModel) async {
+    try {
+      final result =
+          await homeBaseRemotelyDataSource.addTOCart(addCartModel);
       return Left(result);
     } on Exception catch (e) {
       return right(DioHelper.buildFailure(e));

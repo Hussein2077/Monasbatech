@@ -14,6 +14,7 @@ import 'package:monasbatek/features/auth/presentation/controller/sign_up_bloc/si
 import 'package:monasbatek/features/home/data/home_remote_data_source.dart';
 import 'package:monasbatek/features/home/data/repo_imp.dart';
 import 'package:monasbatek/features/home/domain/repo/base_repo.dart';
+import 'package:monasbatek/features/home/domain/use_case/add_cart_uc.dart';
 import 'package:monasbatek/features/home/domain/use_case/get-items_uc.dart';
 import 'package:monasbatek/features/home/domain/use_case/get_category_uc.dart';
 import 'package:monasbatek/features/home/domain/use_case/get_sub_cat_uc.dart';
@@ -41,6 +42,7 @@ class ServerLocator {
         ));
     getIt.registerLazySingleton(() => SubCategoriesBloc(
           getCategoryModelUseCase: getIt(),
+      addCartUseCase: getIt(),
         ));getIt.registerLazySingleton(() => ItemsBloc(
           getItemsUseCase: getIt(),
         ));
@@ -59,6 +61,8 @@ class ServerLocator {
         .registerFactory(() => GetCategoryUseCase(homeBaseRepository: getIt()));
     getIt.registerFactory(
         () => GetCategoryModelUseCase(homeBaseRepository: getIt()));
+    getIt.registerFactory(
+        () => AddCartUseCase(homeBaseRepository: getIt()));
     // repo and data source
     getIt.registerLazySingleton<BaseRemotelyDataSource>(
         () => AuthRemotelyDateSource());

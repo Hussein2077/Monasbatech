@@ -1,19 +1,12 @@
-import 'dart:developer';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:monasbatek/core/widgets/empty_widget.dart';
 import 'package:monasbatek/core/widgets/loading_widget.dart';
-import 'package:monasbatek/features/home/data/models/categoty_model.dart';
-import 'package:monasbatek/features/home/presentation/bloc/category_bloc/get_category_bloc.dart';
-import 'package:monasbatek/features/home/presentation/bloc/category_bloc/get_category_event.dart';
-import 'package:monasbatek/features/home/presentation/bloc/category_bloc/get_category_state.dart';
 import 'package:monasbatek/features/home/presentation/bloc/sub_category_bloc/get_category_bloc.dart';
 import 'package:monasbatek/features/home/presentation/bloc/sub_category_bloc/get_category_event.dart';
 import 'package:monasbatek/features/home/presentation/bloc/sub_category_bloc/get_category_state.dart';
-
 import '../../../../core/resource_manager/asset_path.dart';
 import '../../../../core/resource_manager/colors.dart';
 import '../../../../core/resource_manager/routes.dart';
