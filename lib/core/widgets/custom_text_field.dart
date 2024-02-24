@@ -46,7 +46,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: widget.height ?? AppSize.defaultSize! * 7,
-      width: widget.width ?? AppSize.screenWidth! - (AppSize.defaultSize! * 4),
+      width: widget.width ?? AppSize.screenWidth!,
       child: TextFormField(
         maxLines: widget.maxLines,
         minLines: widget.minLines,
@@ -59,7 +59,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         decoration: InputDecoration(
           labelText: widget.labelText,
           filled: true,
-          fillColor: Colors.white.withOpacity(.5),
+          fillColor: Colors.white,
           hintText: widget.hintText,
           hintStyle: widget.hintStyle ??
               TextStyle(
@@ -84,16 +84,16 @@ class _CustomTextFieldState extends State<CustomTextField> {
           ),
           enabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.transparent),
-              borderRadius: BorderRadius.circular(AppSize.defaultSize! * 2)),
+              borderRadius: BorderRadius.circular(AppSize.defaultSize! * 1.5)),
           border: OutlineInputBorder(
               borderSide: const BorderSide(color: AppColors.blackColor),
-              borderRadius: BorderRadius.circular(AppSize.defaultSize! * 2)),
+              borderRadius: BorderRadius.circular(AppSize.defaultSize! * 1.5)),
           focusedBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: AppColors.primaryColor),
-              borderRadius: BorderRadius.circular(AppSize.defaultSize! * 2)),
+              borderRadius: BorderRadius.circular(AppSize.defaultSize! * 1.5)),
           disabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: AppColors.primaryColor),
-              borderRadius: BorderRadius.circular(AppSize.defaultSize! * 2)),
+              borderRadius: BorderRadius.circular(AppSize.defaultSize! * 1.5)),
           contentPadding: EdgeInsets.only(
             left: AppSize.defaultSize! *
                 3, // لزيادة المسافة بين الأيقونة البادئة والنص

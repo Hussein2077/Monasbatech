@@ -91,10 +91,11 @@ class ReservationStatusWidget extends StatelessWidget {
                               borderRadius: BorderRadius.circular(
                                   AppSize.defaultSize! * 1),
                               color: AppColors.primaryColor),
-                          padding: EdgeInsets.all(AppSize.defaultSize! * 0.8),
+                          padding: EdgeInsets.all(AppSize.defaultSize! * 0.7),
                           child: CustomText(
                             text: reservationStatus,
                             color: AppColors.white,
+                            fontSize: AppSize.defaultSize! * 1,
                           ),
                         ),
                   SizedBox(

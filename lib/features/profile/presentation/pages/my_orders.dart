@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:monasbatek/features/profile/presentation/pages/order_status_details.dart';
@@ -108,7 +109,7 @@ class _MyOrdersState extends State<MyOrders> {
                   _customTab(StringManager.canceled, 2),
                 ],
               ),
-            ),
+            ).animate().fade().scale(),
             Expanded(
               // PageView for content
               child: PageView(
@@ -177,7 +178,7 @@ class _MyOrdersState extends State<MyOrders> {
                       }),
                 ],
               ),
-            ),
+            ).animate().fade().scale(),
           ],
         ),
       ),

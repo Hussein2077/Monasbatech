@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monasbatek/core/resource_manager/colors.dart';
 import 'package:monasbatek/core/widgets/cutom_text.dart';
@@ -54,7 +55,7 @@ class EditProfileScreen extends StatelessWidget {
           children: [
             Column(
               children: [
-                EditPhotoWidget(),
+                EditPhotoWidget().animate().fade().scale(),
                 SizedBox(
                   height: AppSize.screenHeight! * 0.07,
                 ),
@@ -65,14 +66,14 @@ class EditProfileScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ],
-                ),
+                ).animate().fade().scale(),
                 SizedBox(
                   height: AppSize.screenHeight! * 0.01,
                 ),
                 EditProfileData(
                   title: StringManager.profileName.tr(),
                   prefixIcon: AssetPath.profileNavigation,
-                ),
+                ).animate().fade().scale(),
                 SizedBox(
                   height: AppSize.screenHeight! * 0.01,
                 ),
@@ -83,14 +84,14 @@ class EditProfileScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ],
-                ),
+                ).animate().fade().scale(),
                 SizedBox(
                   height: AppSize.screenHeight! * 0.01,
                 ),
                 EditProfileData(
                   title: StringManager.emailAddress.tr(),
                   prefixIcon: AssetPath.emailIcon,
-                ),
+                ).animate().fade().scale(),
                 SizedBox(
                   height: AppSize.screenHeight! * 0.01,
                 ),
@@ -101,11 +102,11 @@ class EditProfileScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ],
-                ),
+                ).animate().fade().scale(),
                 SizedBox(
                   height: AppSize.screenHeight! * 0.01,
                 ),
-                PhoneWithCountry(),
+                PhoneWithCountry().animate().fade().scale(),
               ],
             ),
             Align(
@@ -113,7 +114,7 @@ class EditProfileScreen extends StatelessWidget {
               child: MainButton(
                 text: StringManager.edit.tr(),
               ),
-            )
+            ).animate().fade().scale()
           ],
         ),
       ),

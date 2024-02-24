@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:monasbatek/core/resource_manager/colors.dart';
 import 'package:monasbatek/core/resource_manager/string_manager.dart';
+import 'package:monasbatek/features/home/presentation/product_details/presentation/pages/reservation_details.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import '../../../../core/resource_manager/asset_path.dart';
 import '../../../../core/resource_manager/routes.dart';
@@ -71,7 +73,17 @@ class CustomTapBar extends StatelessWidget {
                     left: AppSize.defaultSize! * 1.5,
                     right: AppSize.defaultSize! * 1.5,
                   ),
-                  child: CustomProviderItemsDecoration(),
+                  child: InkWell(
+                      onTap: () {
+                        PersistentNavBarNavigator.pushNewScreen(
+                          context,
+                          screen: ReservationDetails(),
+                          withNavBar: false,
+                          // OPTIONAL VALUE. True by default.
+                          pageTransitionAnimation: PageTransitionAnimation.fade,
+                        );
+                      },
+                      child: CustomProviderItemsDecoration()),
                 ),
                 Padding(
                   padding: EdgeInsets.only(

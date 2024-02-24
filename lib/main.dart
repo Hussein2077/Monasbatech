@@ -73,7 +73,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             scaffoldBackgroundColor: AppColors.backGroundColor),
         onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.main,
+        initialRoute: Routes.splash,
       ),
     );
   }

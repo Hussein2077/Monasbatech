@@ -44,7 +44,7 @@ class StringManager {
   static const String verify = "Verify";
   static const String fullName = "Full Name";
   static const String secondName = "second Name";
-  static const String phoneNum = "Phone";
+  static const String phoneNum = "Phone Number";
   static const String dateOfBirth = "Date of birth";
   static const String viewProfile = "View Profile";
   static const String home = "Home";
@@ -91,6 +91,7 @@ class StringManager {
   static const String priceTitle = 'Price';
   static const String product = 'Product';
   static const String provider = 'Provider';
+  static const String shops = 'Shops';
   static const String confirmTheProcess = 'confirm the process';
   static const String address = 'Address';
   static const String chooseAddress = 'Choose Address';
@@ -116,7 +117,7 @@ class StringManager {
   static const String underReceipt = "Under receipt";
   static const String orderDetails = "Order Details";
   static const String homeAddress = "10 Omar bin Abdul Aziz Street";
-  static const String jeddahName = "- Jeddah";
+  static const String jeddahName = "Jeddah";
   static const String phoneNumber = "+9502151620";
   static const String masterCardData = "***mohamed@gmail.com";
   static const String orderAgain = "Order Again";
@@ -125,7 +126,29 @@ class StringManager {
   static const String trendCafe = "Trend Cafe - Trend";
   static const String reservationDate = 'February 3, 00:10 PM';
   static const String progressReservation = "null";
+  static const String progressReservationTitle = "Progress Reservation";
+  static const String reservationCanceled = "Reservation Canceled";
   static const String againReservation = "Reservation Again";
   static const String reservationDetails = "Reservation Details";
   static const String inviteQrCode = 'Share QR-Code to invitees';
+  static const String reservationDateByDay = 'SAT 25 February 2024';
+  static const String reservationTime = '09: 00 PM';
+  static const String completeReservation = 'Completed Reservations';
+  static const String chocolateCost = 'Chocolate Cost';
+  static const String ratingUs = 'Rating Us';
+  static const String addAddress = "Add Address";
+  static const String editAddress = "Edit Address";
+  static const String deliveryTo = "Delivery to";
+  static const String city = "City";
+  static const String addressInDetail = "Address in detail";
+  static const String aboutPlace = "About Place";
+  static const String timesWork = "Times Work";
+  static const String timesWorkDate =
+      "From Sunday - Thursday, 00: 10 AM - 00: 10 PM";
+  static const String aboutPlaceDescription =
+      "This example is such a some words which it can be replace,This example is such a some words which it can be replace,This example is such a some words which it can be replace,This example is such a some words which it can be replace,";
+  static const String testimonials = "Testimonials";
+  static const String viewAll = "View All";
+  static const String testimonialsCommentsDate = "3 Oct 2022";
+  static const String bookNow = "Book now";
 }

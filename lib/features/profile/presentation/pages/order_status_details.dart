@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:monasbatek/core/widgets/main_button.dart';
 
@@ -67,7 +68,7 @@ class OrderStatusDetails extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
+            ).animate().fade().scale(),
             SizedBox(
               height: AppSize.screenHeight! * 0.01,
             ),
@@ -116,7 +117,7 @@ class OrderStatusDetails extends StatelessWidget {
                   ],
                 ),
               ],
-            ),
+            ).animate().fade().scale(),
             SizedBox(
               height: AppSize.screenHeight! * 0.01,
             ),
@@ -125,7 +126,7 @@ class OrderStatusDetails extends StatelessWidget {
               color: AppColors.black,
               fontSize: AppSize.defaultSize! * 2,
               fontWeight: FontWeight.w500,
-            ),
+            ).animate().fade().scale(),
             SizedBox(
               height: AppSize.screenHeight! * 0.01,
             ),
@@ -179,7 +180,7 @@ class OrderStatusDetails extends StatelessWidget {
                           ],
                         )
                       ],
-                    ),
+                    ).animate().fade().scale(),
                     CircleAvatar(
                         minRadius: AppSize.defaultSize! * 1.5,
                         child: Center(
@@ -192,7 +193,7 @@ class OrderStatusDetails extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
+            ).animate().fade().scale(),
             //----------
             SizedBox(
               height: AppSize.screenHeight! * 0.01,
@@ -219,7 +220,7 @@ class OrderStatusDetails extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
+            ).animate().fade().scale(),
             //--------
             SizedBox(
               height: AppSize.screenHeight! * 0.01,
@@ -266,14 +267,14 @@ class OrderStatusDetails extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
+            ).animate().fade().scale(),
             //--------
             SizedBox(
               height: AppSize.screenHeight! * 0.05,
             ),
             MainButton(
               text: StringManager.orderAgain.tr(),
-            )
+            ).animate().fade().scale(),
           ],
         ),
       ),

@@ -42,8 +42,6 @@ class _SubCategoryItemsState extends State<SubCategoryItems> {
       child: BlocBuilder<ItemsBloc, ItemsState>(
         builder: (context, state) {
           if (state is ItemsSuccessMessageState) {
-            log('${state.items}hhhhh');
-            log('${widget.id}hhhhh');
             return Scaffold(
               appBar: AppBar(
                 centerTitle: true,
@@ -109,17 +107,19 @@ class _SubCategoryItemsState extends State<SubCategoryItems> {
                         ),
                         itemBuilder: (context, index) {
                           return InkWell(
-                            onTap: () => Navigator.of(context)
-                                .pushNamed(Routes.productDetails,arguments: state.items[index]),
+                            onTap: () => Navigator.of(context).pushNamed(
+                                Routes.productDetails,
+                                arguments: state.items[index]),
                             child: CustomItemsDecoration(
-                              favouriteFunction: () {
-                                print("Hello Hussein");
-                              },
-                              imagePath:state.items[index].imagePath!,
-                              companyImg: state.items[index].provider?.profileImage??"",
-                              companyName: state.items[index].provider?.name??"",
-                              productName: state.items[index].name??"",
-                              productPrice:  state.items[index].price.toString(),
+                              favouriteFunction: () {},
+                              imagePath: state.items[index].imagePath!,
+                              companyImg:
+                                  state.items[index].provider?.profileImage ??
+                                      "",
+                              companyName:
+                                  state.items[index].provider?.name ?? "",
+                              productName: state.items[index].name ?? "",
+                              productPrice: state.items[index].price.toString(),
                             ).animate().fade().scale(),
                           );
                         },
